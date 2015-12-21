@@ -10,8 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fs-extra": "^0.26.3",
-    "phantom-html-to-pdf": "^0.3.3",
-    "phantomjs-pdf": "^0.1.2"
+    "fs-extra": "^0.26.3"
   }
 }
