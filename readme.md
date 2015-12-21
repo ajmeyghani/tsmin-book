@@ -27,6 +27,7 @@ Then, `nvm install 0.12.9` and after it is installed, load `0.12.9` in your curr
 ## Get Started
 
 - Install dependencies with `npm i`
+- Install [pandoc](http://pandoc.org/installing.html)
 - Install `phantomjs` for your platform
 
 ```
