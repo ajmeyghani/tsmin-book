@@ -1,0 +1,17 @@
+{
+  "name": "md-converter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "convert.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "rm -rf output && node bin/htx.js && node bin/pdfify.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^0.26.3",
+    "phantom-html-to-pdf": "^0.3.3",
+    "phantomjs-pdf": "^0.1.2"
+  }
+}
