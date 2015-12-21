@@ -11,7 +11,7 @@
 <li>Access modifiers can be used to make them public or private</li>
 <li>The instance variables are attached to the instance itself but not the prototype</li>
 <li>Methods however are attached to the prototype object as opposed to the instance itself</li>
-<li>Classes can inherit functionality from other classes, <strong>but you should <a href="https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3#.oc5pdevwh">favor composition over inheritance</a></strong></li>
+<li>Classes can inherit functionality from other classes, <strong>but you should <a href="https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3#.oc5pdevwh">favor composition over inheritance</a></strong> or make sure you know <strong><a href="https://medium.com/@dtinth/es6-class-classical-inheritance-20f4726f4c4#.xdif2m42e">when to use it</a></strong></li>
 <li>Classes can implement interfaces</li>
 </ul>
 <h2 id="example">Example</h2>
@@ -34,17 +34,13 @@ myCar.distance = 0;</code></pre>
 <li><code>new Car()</code> creates an instance from the <code>Car</code> definition.</li>
 <li><code>myCar.distance = 0</code> sets the initial value of the <code>distance</code> to 0 for the newly created <code>car</code></li>
 </ul>
-<div class="page-break">
-
-</div>
 <h3 id="adding-a-method">Adding a Method</h3>
 <p>So far our car doesn't have any definitions for any actions. Let's define a <code>move</code> method that all the cars can have:</p>
-<pre class="typescript">
-<code>class Car {
+<pre class="typescript"><code>class Car {
   distance: number;
-  <b>move():void {
+  move():void {
     this.distance += 1;
-  };</b>
+  };
 }</code></pre>
 <ul>
 <li><code>move():void</code> means that <code>move</code> is a method that does not return any value, hence <code>void</code>.</li>
@@ -56,12 +52,11 @@ myCar.distance = 0;</code></pre>
 console.log(myCar.distance) // -&gt; 1</code></pre>
 <h3 id="adding-a-constructor">Adding a constructor</h3>
 <p>A <code>constructor</code> is a special method that gets called when an instance is created from a class. Let's add a constructor to the <code>Car</code> class that initializes the <code>distance</code> value to 0. This means that all the cars that are crated from this class, will have their <code>distance</code> set to 0 automatically:</p>
-<pre class="typescript">
-<code>class Car {
+<pre class="typescript"><code>class Car {
   distance: number;
-  <b>constructor () {
+  constructor () {
     this.distance = 0;
-  };</b>
+  };
   move():void {
     this.distance += 1;
   };
@@ -71,17 +66,13 @@ console.log(myCar.distance) // -&gt; 1</code></pre>
 <li>The body of the constructor is defined in the <code>{ }</code></li>
 </ul>
 <p>So now when we create a car, the <code>distance</code> property is automatically set to 0.</p>
-<div class="page-break">
-
-</div>
 <h3 id="using-access-modifiers">Using Access Modifiers</h3>
 <p>If you wanted to tell the compiler that the <code>distance</code> variable is private and can only be used by the object itself, you can use the <code>private</code> modifier before the name of the property:</p>
-<pre class="typescript">
-<code>class Car {
-  <b>private distance: number;</b>
+<pre class="typescript"><code>class Car {
+  private distance: number;
   constructor () {
     ...
-  };</b>
+  };
   ...
 }</code></pre>
 <p>Access modifiers can be used in different places. Check out the access modifiers chapter for more details.</p>
@@ -95,8 +86,7 @@ interface ICarMethods {
   move():void;
 }</code></pre>
 <p>Making the <code>Car</code> class implement the interfaces:</p>
-<pre class="typescript">
-<code>class Car <b>implements ICarProps, ICarMethods </b> {
+<pre class="typescript"><code>class Car implements ICarProps, ICarMethods {
   distance: number;
   constructor () {
     this.distance = 5;

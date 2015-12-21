@@ -134,3 +134,5 @@ pre code { background-color: transparent; }
 @media print {
   .page-break { display: block; page-break-before: always; }
 }
+
+.syntaxhighlighter .toolbar { display: none !important;}

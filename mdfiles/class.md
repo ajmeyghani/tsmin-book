@@ -11,7 +11,7 @@
 - Access modifiers can be used to make them public or private
 - The instance variables are attached to the instance itself but not the prototype
 - Methods however are attached to the prototype object as opposed to the instance itself
-- Classes can inherit functionality from other classes, **but you should [favor composition over inheritance](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3#.oc5pdevwh)** or make sure you know [when to use it](https://medium.com/@dtinth/es6-class-classical-inheritance-20f4726f4c4#.xdif2m42e)
+- Classes can inherit functionality from other classes, **but you should [favor composition over inheritance](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3#.oc5pdevwh)** or make sure you know **[when to use it](https://medium.com/@dtinth/es6-class-classical-inheritance-20f4726f4c4#.xdif2m42e)**
 - Classes can implement interfaces
 
 ## Example
@@ -38,25 +38,23 @@ Now that we have the definition for a car, we can create a car from the definiti
 let myCar:Car = new Car();
 myCar.distance = 0;
 ```
+
 - `myCar:Car` means that `myCar` is of type `Car`
 - `new Car()` creates an instance from the `Car` definition.
 - `myCar.distance = 0` sets the initial value of the `distance` to 0 for the newly created `car`
-
-<div class="page-break"></div>
 
 ### Adding a Method
 
 So far our car doesn't have any definitions for any actions. Let's define a `move` method that all the cars can have:
 
-<div class="highlight highlight-source-ts">
-<pre class="typescript">
-<code>class Car {
+```typescript
+class Car {
   distance: number;
-  <b>move():void {
+  move():void {
     this.distance += 1;
-  };</b>
-}</code></pre>
-</div>
+  };
+}
+```
 
 - `move():void` means that `move` is a method that does not return any value, hence `void`.
 - The body of the method is defined in `{ }`
@@ -72,40 +70,36 @@ console.log(myCar.distance) // -> 1
 
 A `constructor` is a special method that gets called when an instance is created from a class. Let's add a constructor to the `Car` class that initializes the `distance` value to 0. This means that all the cars that are crated from this class, will have their `distance` set to 0 automatically:
 
-<div class="highlight highlight-source-ts">
-<pre class="typescript">
-<code>class Car {
+```typescript
+class Car {
   distance: number;
-  <b>constructor () {
+  constructor () {
     this.distance = 0;
-  };</b>
+  };
   move():void {
     this.distance += 1;
   };
-}</code></pre>
-</div>
+}
+```
 
 - `constructor()` is called automatically when a new car is created
 - The body of the constructor is defined in the `{ }`
 
 So now when we create a car, the `distance` property is automatically set to 0.
 
-<div class="page-break"></div>
-
 ### Using Access Modifiers
 
 If you wanted to tell the compiler that the `distance` variable is private and can only be used by the object itself, you can use the `private` modifier before the name of the property:
 
-<div class="highlight highlight-source-ts">
-<pre class="typescript">
-<code>class Car {
-  <b>private distance: number;</b>
+```typescript
+class Car {
+  private distance: number;
   constructor () {
     ...
-  };</b>
+  };
   ...
-}</code></pre>
-</div>
+}
+```
 
 Access modifiers can be used in different places. Check out the access modifiers chapter for more details.
 
@@ -125,9 +119,8 @@ interface ICarMethods {
 ```
 Making the `Car` class implement the interfaces:
 
-<div class="highlight highlight-source-ts">
-<pre class="typescript">
-<code>class Car <b>implements ICarProps, ICarMethods </b> {
+```typescript
+class Car implements ICarProps, ICarMethods {
   distance: number;
   constructor () {
     this.distance = 5;
@@ -135,11 +128,12 @@ Making the `Car` class implement the interfaces:
   move():void {
     this.distance += 1;
   };
-}</code></pre>
-</div>
+}
+```
 
 The above example is silly, but it shows the point that a class can implement one or more interfaces. Now if the class does not provide implementations for any of the interfaces, the compiler will complain. For example, if we leave out the `distance` instance variable, the compiler will print out the following error:
 
 
 >error TS2420: Class 'Car' incorrectly implements interface 'ICarProps'.
   Property 'distance' is missing in type 'Car'.
+

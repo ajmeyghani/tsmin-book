@@ -1,3 +1,7 @@
+/* reads md files, and create htm files by
+using main.html as the template and replacing
+`@content` with the content of html created by pandoc
+*/
 var path = require('path');
 var execFile = require('child_process').execFile;
 var mdFolder = process.argv[2]; /* folder containing all the md files */

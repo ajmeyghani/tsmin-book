@@ -17,7 +17,6 @@ Below is an example of an Interface that defines two properties and three method
 
 ```typescript
 interface IMyInterface {
-
   // some properties
   id: number;
   name: string;
@@ -26,7 +25,6 @@ interface IMyInterface {
   method(): void;
   methodWithReturnVal():number;
   sum(nums: number[]):number;
-
 }
 ```
 
@@ -34,7 +32,6 @@ Using the interface above we can create an object that adheres to the interface:
 
 ```typescript
 let myObj: IMyInterface = {
-
   id: 2,
   name: 'some name',
 
@@ -43,7 +40,6 @@ let myObj: IMyInterface = {
   sum(numbers) {
     return numbers.reduce( (a,b) => { return a + b } );
   }
-
 };
 ```
 
@@ -59,13 +55,13 @@ let sum = myObj.sum([1,2,3,4,5]); // -> 15
 
 ### LifeCycle Interfaces
 
+```typescript
 export interface OnChanges {
   ngOnChanges(changes: {
     [key: string]: SimpleChange
   });
 }
 
-```typescript
 export interface OnInit {
   ngOnInit();
 }

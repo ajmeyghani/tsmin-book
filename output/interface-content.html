@@ -14,7 +14,6 @@
 <h2 id="example">Example</h2>
 <p>Below is an example of an Interface that defines two properties and three methods that implementers should provide implementations for:</p>
 <pre class="typescript"><code>interface IMyInterface {
-
   // some properties
   id: number;
   name: string;
@@ -23,11 +22,9 @@
   method(): void;
   methodWithReturnVal():number;
   sum(nums: number[]):number;
-
 }</code></pre>
 <p>Using the interface above we can create an object that adheres to the interface:</p>
 <pre class="typescript"><code>let myObj: IMyInterface = {
-
   id: 2,
   name: &#39;some name&#39;,
 
@@ -36,15 +33,19 @@
   sum(numbers) {
     return numbers.reduce( (a,b) =&gt; { return a + b } );
   }
-
 };</code></pre>
 <p>Notice that we had to provide values to <strong>all</strong> the properties defined by the Interface, and the implementations for <strong>all</strong> the methods defined by the Interface.</p>
 <p>And then of course you can use your object methods to perform operations:</p>
 <pre class="typescript"><code>let sum = myObj.sum([1,2,3,4,5]); // -&gt; 15</code></pre>
 <h2 id="some-angular-interfaces">Some Angular Interfaces</h2>
 <h3 id="lifecycle-interfaces">LifeCycle Interfaces</h3>
-<p>export interface OnChanges { ngOnChanges(changes: { [key: string]: SimpleChange }); }</p>
-<pre class="typescript"><code>export interface OnInit {
+<pre class="typescript"><code>export interface OnChanges {
+  ngOnChanges(changes: {
+    [key: string]: SimpleChange
+  });
+}
+
+export interface OnInit {
   ngOnInit();
 }
 
