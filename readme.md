@@ -2,6 +2,14 @@
 
 An abridged book on TypeScript
 
+## Table of Content
+
+[Interfaces](https://github.com/st32lth/tsmin-book/blob/master/output/pdf/interface.pdf)
+
+[Classes](https://github.com/st32lth/tsmin-book/blob/master/output/pdf/class.pdf)
+
+# Building the book
+
 ## Requirement
 
 Node > 0.12.9
