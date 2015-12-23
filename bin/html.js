@@ -47,13 +47,22 @@ var wrapHtmlContent = function (makeHtml) {
         var dest = path.join('output/html', outputFolder);
         var toWriteFileName = path.join(dest, filename.replace('.md', '-content.html'));
         toWriteFileNames.push(toWriteFileName);
-
-        fs.ensureDir(dest, function (enErr) {
-          var htmlContent = 'pandoc --to=html ' + file + ' -o ' + toWriteFileName;
-          if (enErr) { return console.log(enErr);}
-          exec(htmlContent, function(contentErr, stdout, stderr) {
-            if (contentErr) { return console.log(contentErr); }
-            makeHtml(toWriteFileName, template);
+        fs.readFile(file, 'utf-8', function (errReadMd, mdContent) {
+          if (errReadMd) { return console.log(errReadMd);}
+          fs.ensureDir(dest, function (enErr) {
+            var htmlContent = 'pandoc --to=html ' + file + ' -o ' + toWriteFileName;
+            if (enErr) { return console.log(enErr);}
+            exec(htmlContent, function(contentErr, stdout, stderr) {
+              if (contentErr) { return console.log(contentErr); }
+              var pageTitleRegx = new RegExp('^[-]+[\\n\\rc\\r]+\\s*title:(.*)');
+              var pageTitle;
+              if (mdContent.match(pageTitleRegx) !== null) {
+                pageTitle = mdContent.match(pageTitleRegx)[1].trim();
+              } else {
+                pageTitle = '';
+              }
+              makeHtml(toWriteFileName, template, pageTitle);
+            });
           });
         });
       });
@@ -61,10 +70,10 @@ var wrapHtmlContent = function (makeHtml) {
   });
 };
 
-wrapHtmlContent(function (theFilePath, template) {
+wrapHtmlContent(function (theFilePath, template, pageTitle) {
   fs.readFile(theFilePath, 'utf-8', function (readErr, htmlContent) {
     if (readErr) { console.log(readErr);}
-    var toWrite = template.replace(/@content/, htmlContent);
+    var toWrite = template.replace(/@content/, htmlContent).replace(/@title/, pageTitle);
     /* replace the public path */
     var pathRealtiveToHtml = theFilePath.replace('output/html/', '');
     var nestCount = pathRealtiveToHtml.split('/').length;

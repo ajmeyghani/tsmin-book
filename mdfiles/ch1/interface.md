@@ -1,3 +1,7 @@
+---
+title: Interface
+---
+
 # Interface
 
 - An Interface is defined using the `interface` keyword

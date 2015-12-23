@@ -1,3 +1,7 @@
+---
+title: Classes
+---
+
 # Classes
 
 - Classes are heavily used in classical object oriented programming
