@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "rm -rf output && node bin/htx.js && node bin/highlight.js && node bin/pdfify.js",
-    "start:hx": "rm -rf output && node bin/htx.js && node bin/pdfify.js"
+    "start:nohx": "rm -rf output && node bin/htx.js && node bin/pdfify.js",
+    "epub": "pandoc mdfiles/**.md -o output/book.epub --highlight-style haddock"
   },
   "author": "",
   "license": "ISC",
