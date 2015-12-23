@@ -1,3 +1,0 @@
-# TSmin
-
- TypeScript Minifed
