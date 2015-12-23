@@ -216,8 +216,12 @@ code {
   color: #c7254e;
   /*font-size: 80%;*/
 }
-.code code {
+.code code, pre code {
   border: none;
   color: black;
 }
-.code code { background-color: transparent; }
+.code code, pre code { background-color: transparent; }
+
+td.lineNumbers {
+  width: 1px;
+}

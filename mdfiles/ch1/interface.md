@@ -11,7 +11,7 @@
 - If an object implements an interface, it must adhere to the contract. If it doesn't the compiler will let us know.
 - Interfaces also define custom types
 
-## Example
+## Basic Interface
 
 Below is an example of an Interface that defines two properties and three methods that implementers should provide implementations for:
 
@@ -53,6 +53,8 @@ let sum = myObj.sum([1,2,3,4,5]); // -> 15
 
 ## Some Angular Interfaces
 
+Angular uses interfaces all over the place. The interfaces that are used very often are the *LifeCycle Hooks*.
+
 ### LifeCycle Interfaces
 
 ```typescript
@@ -66,27 +68,8 @@ export interface OnInit {
   ngOnInit();
 }
 
-export interface DoCheck {
-  ngDoCheck();
-}
-
 export interface OnDestroy {
   ngOnDestroy();
 }
 
-export interface AfterContentInit {
-  ngAfterContentInit();
-}
-
-export interface AfterContentChecked {
-  ngAfterContentChecked();
-}
-
-export interface AfterViewInit {
-  ngAfterViewInit();
-}
-
-export interface AfterViewChecked {
-  ngAfterViewChecked();
-}
 ```

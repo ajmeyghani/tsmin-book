@@ -12,7 +12,7 @@ var mdFolder = process.argv[2]; /* folder containing all the html files files */
 var fs = require('fs-extra');
 
 /* TODO: this function can be put into in its own module */
-execFile('find', [ 'output' ], function(err, stdout, stderr) {
+execFile('find', [ 'output/html' ], function(err, stdout, stderr) {
   var fileList = stdout.split('\n');
   var htmlfiles = fileList.filter(function (file) {
     var filename = file.split('/').pop();

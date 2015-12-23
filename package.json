@@ -4,14 +4,20 @@
   "description": "",
   "main": "convert.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "rm -rf output && node bin/htx.js && node bin/highlight.js && node bin/pdfify.js",
-    "start:nohx": "rm -rf output && node bin/htx.js && node bin/pdfify.js",
-    "epub": "pandoc mdfiles/**.md -o output/book.epub --highlight-style haddock"
+    "all": "npm run start && npm run epub && npm run html:s && npm run latex",
+    "start": "rm -rf output && node bin/html.js && node bin/highlight.js && node bin/pdfify.js",
+    "start:nohx": "rm -rf output && node bin/html.js && node bin/pdfify.js",
+    "mdx": "rm -rf output/mdx && node bin/mdx.js",
+    "epub": "npm run mdx && rm -rf output/book.epub && pandoc output/mdx/*.md output/mdx/**/*.md output/mdx/**/**/*.md -o output/book.epub --highlight-style haddock --epub-cover-image=cover.png",
+    "html:s": "npm run mdx && pandoc output/mdx/*.md output/mdx/**/*.md output/mdx/**/**/*.md -s -o output/book-all.html --toc --filter pandoc-numbering -c ../public/style/style.css --highlight-style haddock --toc-depth=5",
+    "latex": "pandoc -N --template=template.tex --variable mainfont=\"Palatino\" --variable sansfont=\"Century Gothic\" --variable monofont=\"Consolas\" --variable fontsize=12pt --variable version='alpha1' output/mdx/*.md output/mdx/**/*.md output/mdx/**/**/*.md --latex-engine=xelatex --toc --toc-depth=5 -o output/book.pdf"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cheerio": "^0.19.0",
+    "express": "^4.13.3",
+    "filewalker": "^0.1.2",
     "fs-extra": "^0.26.3"
   }
 }
