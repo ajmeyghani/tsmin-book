@@ -1,3 +1,17 @@
+# test
+
+~~~~ {.numberLines .java language=java startFrom="1"}
+interface IMyInterface {
+  // some properties
+  id: number;
+  name: string;
+
+  // some methods
+  method(): void;
+  methodWithReturnVal():number;
+  sum(nums: number[]):number;
+}
+~~~~~~~~~
 # Classes
 
 - Classes are heavily used in classical object oriented programming
@@ -13,8 +27,6 @@
 - Methods however are attached to the prototype object as opposed to the instance itself
 - Classes can inherit functionality from other classes, but you should [favor composition over inheritance](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3#.oc5pdevwh) or make sure you know [when to use it](https://medium.com/@dtinth/es6-class-classical-inheritance-20f4726f4c4#.xdif2m42e)
 - Classes can implement interfaces
-
-## Example
 
 Let's make a class definition for a car and incrementally add more things to it.
 
