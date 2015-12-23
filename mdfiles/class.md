@@ -11,7 +11,7 @@
 - Access modifiers can be used to make them public or private
 - The instance variables are attached to the instance itself but not the prototype
 - Methods however are attached to the prototype object as opposed to the instance itself
-- Classes can inherit functionality from other classes, **but you should [favor composition over inheritance](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3#.oc5pdevwh)** or make sure you know **[when to use it](https://medium.com/@dtinth/es6-class-classical-inheritance-20f4726f4c4#.xdif2m42e)**
+- Classes can inherit functionality from other classes, but you should [favor composition over inheritance](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3#.oc5pdevwh) or make sure you know [when to use it](https://medium.com/@dtinth/es6-class-classical-inheritance-20f4726f4c4#.xdif2m42e)
 - Classes can implement interfaces
 
 ## Example

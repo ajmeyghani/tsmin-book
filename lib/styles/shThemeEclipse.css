@@ -15,114 +15,114 @@
  * Dual licensed under the MIT and GPL licenses.
  */
 .syntaxhighlighter {
-  background-color: white !important;
+  background-color: white ;
 }
 .syntaxhighlighter .line.alt1 {
-  background-color: white !important;
+  background-color: white ;
 }
 .syntaxhighlighter .line.alt2 {
-  background-color: white !important;
+  background-color: white ;
 }
 .syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
-  background-color: #c3defe !important;
+  background-color: #c3defe ;
 }
 .syntaxhighlighter .line.highlighted.number {
-  color: white !important;
+  color: white ;
 }
 .syntaxhighlighter table caption {
-  color: black !important;
+  color: black ;
 }
 .syntaxhighlighter .gutter {
-  color: #787878 !important;
+  color: #787878 ;
 }
 .syntaxhighlighter .gutter .line {
-  border-right: 3px solid #d4d0c8 !important;
+  border-right: 3px solid #d4d0c8 ;
 }
 .syntaxhighlighter .gutter .line.highlighted {
-  background-color: #d4d0c8 !important;
-  color: white !important;
+  background-color: #d4d0c8 ;
+  color: white ;
 }
 .syntaxhighlighter.printing .line .content {
-  border: none !important;
+  border: none ;
 }
 .syntaxhighlighter.collapsed {
-  overflow: visible !important;
+  overflow: visible ;
 }
 .syntaxhighlighter.collapsed .toolbar {
-  color: #3f5fbf !important;
-  background: white !important;
-  border: 1px solid #d4d0c8 !important;
+  color: #3f5fbf ;
+  background: white ;
+  border: 1px solid #d4d0c8 ;
 }
 .syntaxhighlighter.collapsed .toolbar a {
-  color: #3f5fbf !important;
+  color: #3f5fbf ;
 }
 .syntaxhighlighter.collapsed .toolbar a:hover {
-  color: #aa7700 !important;
+  color: #aa7700 ;
 }
 .syntaxhighlighter .toolbar {
-  color: #a0a0a0 !important;
-  background: #d4d0c8 !important;
-  border: none !important;
+  color: #a0a0a0 ;
+  background: #d4d0c8 ;
+  border: none ;
 }
 .syntaxhighlighter .toolbar a {
-  color: #a0a0a0 !important;
+  color: #a0a0a0 ;
 }
 .syntaxhighlighter .toolbar a:hover {
-  color: red !important;
+  color: red ;
 }
 .syntaxhighlighter .plain, .syntaxhighlighter .plain a {
-  color: black !important;
+  color: black ;
 }
 .syntaxhighlighter .comments, .syntaxhighlighter .comments a {
-  color: #3f5fbf !important;
+  color: #3f5fbf ;
 }
 .syntaxhighlighter .string, .syntaxhighlighter .string a {
-  color: #2a00ff !important;
+  color: #2a00ff ;
 }
 .syntaxhighlighter .keyword {
-  color: #7f0055 !important;
+  color: #7f0055 ;
 }
 .syntaxhighlighter .preprocessor {
-  color: #646464 !important;
+  color: #646464 ;
 }
 .syntaxhighlighter .variable {
-  color: #aa7700 !important;
+  color: #aa7700 ;
 }
 .syntaxhighlighter .value {
-  color: #009900 !important;
+  color: #009900 ;
 }
 .syntaxhighlighter .functions {
-  color: #ff1493 !important;
+  color: #ff1493 ;
 }
 .syntaxhighlighter .constants {
-  color: #0066cc !important;
+  color: #0066cc ;
 }
 .syntaxhighlighter .script {
-  font-weight: bold !important;
-  color: #7f0055 !important;
-  background-color: none !important;
+  font-weight: bold ;
+  color: #7f0055 ;
+  background-color: none ;
 }
 .syntaxhighlighter .color1, .syntaxhighlighter .color1 a {
-  color: gray !important;
+  color: gray ;
 }
 .syntaxhighlighter .color2, .syntaxhighlighter .color2 a {
-  color: #ff1493 !important;
+  color: #ff1493 ;
 }
 .syntaxhighlighter .color3, .syntaxhighlighter .color3 a {
-  color: red !important;
+  color: red ;
 }
 
 .syntaxhighlighter .keyword {
-  font-weight: bold !important;
+  font-weight: bold ;
 }
 .syntaxhighlighter .xml .keyword {
-  color: #3f7f7f !important;
-  font-weight: normal !important;
+  color: #3f7f7f ;
+  font-weight: normal ;
 }
 .syntaxhighlighter .xml .color1, .syntaxhighlighter .xml .color1 a {
-  color: #7f007f !important;
+  color: #7f007f ;
 }
 .syntaxhighlighter .xml .string {
-  font-style: italic !important;
-  color: #2a00ff !important;
+  font-style: italic ;
+  color: #2a00ff ;
 }
