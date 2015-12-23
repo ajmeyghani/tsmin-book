@@ -1,17 +1,3 @@
-# test
-
-~~~~ {.numberLines .java language=java startFrom="1"}
-interface IMyInterface {
-  // some properties
-  id: number;
-  name: string;
-
-  // some methods
-  method(): void;
-  methodWithReturnVal():number;
-  sum(nums: number[]):number;
-}
-~~~~~~~~~
 # Classes
 
 - Classes are heavily used in classical object oriented programming
