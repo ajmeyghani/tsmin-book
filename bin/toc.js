@@ -89,19 +89,21 @@ toc(function (filePaths) {
       };
   });
 
-  var makeTocUl = function (items) {
+  var makeTocUl = function (items, file) {
     var tocUl = '<ul>\n';
     var list = items.map(function (tocPath) {
-      return '<li><a href="' + tocPath + '">' + tocPath.split('/').pop() + '</a></li>\n';
+      var name = tocPath.split('/').pop().replace('.html', '');
+      name = name.substring(0,1).toUpperCase() + name.toLowerCase().substring(1, name.length);
+      return '<li><a href="' + tocPath + '">' + name + '</a></li>\n';
     }).join('');
     return tocUl + list + '</ul>';
   }
-
   newTocs.forEach(function (tocObj) {
     var inputFile = path.join('output/html', tocObj.file);
     fs.readFile(inputFile, 'utf-8', function (readErr, htmlContent) {
       if (readErr) { return console.log(readErr);}
-      htmlContent = htmlContent.replace(/@toc/g, makeTocUl(tocObj.toc));
+
+      htmlContent = htmlContent.replace(/<!-- @toc -->/g, makeTocUl(tocObj.toc, tocObj.file));
       var outputPath = path.join('output/html', tocObj.file);
       fs.outputFile(outputPath, htmlContent, function (writeErr) {
         if (writeErr) { return console.log(writeErr);}
