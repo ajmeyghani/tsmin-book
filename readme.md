@@ -3,7 +3,7 @@
 An abridged book on TypeScript
 
 # Book
-See the [mdfiles](./mdfiles) folder to see each chapter and the [output](output) folder for the book in different formats.
+See the [chapters](./chapters) folder to see each chapter and the [output](output) folder for the book in different formats.
 
 <div> <h1> Table of Contents </h1> <div id="TOC" class="l-toc">
     <ul>
