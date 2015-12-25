@@ -22,7 +22,6 @@
   "dependencies": {
     "async": "^1.5.0",
     "cheerio": "^0.19.0",
-    "express": "^4.13.3",
     "filewalker": "^0.1.2",
     "fs-extra": "^0.26.3"
   },
