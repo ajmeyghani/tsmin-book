@@ -46,3 +46,10 @@ $ curl -L http://astefanutti.github.io/decktape/downloads/phantomjs-linux-debian
 - Use the `books` command to compile all the book formats:
 
 `npm run books`
+
+## Tasks
+
+`npm run all`: Runs all the tasks
+`npm run books`: Creates the book in different formats
+
+for a full list of tasks see the [tasks](tasks.md) docs.

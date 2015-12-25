@@ -4,8 +4,8 @@
   "description": "",
   "main": "convert.js",
   "scripts": {
-    "all": "rm -rf output && npm run content && npm run books && npm run github",
-    "content": "rm -rf output/html output/pdf && node bin/html.js && node bin/highlight.js && node bin/pdfify.js",
+    "all": "rm -rf output && npm run chapters && npm run books && npm run github",
+    "chapters": "rm -rf output/html output/pdf && node bin/html.js && node bin/highlight.js && node bin/pdfify.js",
     "github": "rm -rf readme.md && npm run html:h && node bin/github.js",
     "mdx": "rm -rf output/mdx && node bin/mdx.js",
     "epub": "npm run mdx && rm -rf output/tsmin.epub && pandoc -S -o output/tsmin.epub book.txt output/mdx/**/*.md --highlight-style haddock --epub-cover-image=cover.png --epub-stylesheet=book.epub.css --toc-depth=5",
