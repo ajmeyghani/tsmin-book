@@ -3,7 +3,7 @@
 An abridged book on TypeScript
 
 # Book
-See the [mdfiles](./mdfiles) folder to see each chapter and the [output](output) folder for the book in different formats.
+See the [chapters](./chapters) folder to see each chapter and the [output](output) folder for the book in different formats.
 
 @toc
 
@@ -43,9 +43,7 @@ $ curl -L http://astefanutti.github.io/decktape/downloads/phantomjs-linux-debian
 ```
 
 - Install KindleGen from [Amazon](https://www.amazon.com/gp/feature.html?docId=1000765211) - **make sure to put the binary in your path.**
-- Use the `books` command to compile all the book formats:
-
-`npm run books`
+- Use the `books` command to compile all the book formats: `npm run books`
 
 ## Tasks
 

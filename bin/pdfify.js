@@ -3,9 +3,10 @@ var exec = require('child_process').exec;
 var execFile = require('child_process').execFile;
 var mdFolder = process.argv[2]; /* folder containing all the html files files */
 var fs = require('fs-extra');
+var config = require('../config');
 
 /* read output/file.html not output/file-conten.html and run the pdf for each */
-execFile('find', [ 'output/html' ], function(err, stdout, stderr) {
+execFile('find', [ config.output + '/html' ], function(err, stdout, stderr) {
   var fileList = stdout.split('\n');
   var htmlfiles = fileList.filter(function (file) {
     var filename = file.split('/').pop();
@@ -19,7 +20,7 @@ execFile('find', [ 'output/html' ], function(err, stdout, stderr) {
   console.log('Converting to PDF: ', htmlfiles);
   htmlfiles.forEach(function (htmlFilePath) {
     var outputFilePath = htmlFilePath.match(/output\/html\/(.*)/)[1].replace('.html', '.pdf');
-    var makePdf = 'phantomjs bin/render.js ' + htmlFilePath + ' ' + path.join('output/pdf', outputFilePath) ;
+    var makePdf = 'phantomjs bin/render.js ' + htmlFilePath + ' ' + path.join(config.output + '/pdf', outputFilePath) ;
     exec(makePdf, function(pdfErr, stdout, stderr) {
       if (pdfErr) { return console.log(pdfErr);}
     });

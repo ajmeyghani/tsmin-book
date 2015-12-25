@@ -11,9 +11,10 @@ var exec = require('child_process').exec;
 var execFile = require('child_process').execFile;
 var mdFolder = process.argv[2]; /* folder containing all the html files files */
 var fs = require('fs-extra');
+var config = require('../config');
 
 /* TODO: The function for getting a list of files can be a separate module. */
-execFile('find', [ 'output/html' ], function(err, stdout, stderr) {
+execFile('find', [ config.output + '/html' ], function(err, stdout, stderr) {
   var fileList = stdout.split('\n');
   var htmlfiles = fileList.filter(function (file) {
     var filename = file.split('/').pop();

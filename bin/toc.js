@@ -1,29 +1,13 @@
 var fs = require('fs-extra');
 var path = require('path');
-// fs.readFile('./output/book-all.html', {encoding: 'utf-8'}, function (err, data) {
-//   if (err) {return console.log(err);}
-//   var cheerio = require('cheerio'),
-//       $ = cheerio.load(data);
-//   var toc = $('#TOC');
-//   var html = $.html();
-//   console.log(toc.html());
-// });
-
+var config = require('../config');
 var filewalker = require('filewalker');
 var toc = function (operate) {
   var files = [];
   var doesStartWithDot = new RegExp('^\\.');
   filewalker('./output/html')
-    // .on('dir', function(p) {
-    //   console.log('dir:  %s', p);
-    // })
-    .on('file', function(p, s) {
-      // console.log('file: %s, %d bytes', p, s.size);
-      files.push(p);
-    })
-    .on('error', function(err) {
-      console.error(err);
-    })
+    .on('file', function(p, s) { files.push(p); })
+    .on('error', function(err) { console.error(err); })
     .on('done', function() {
       // console.log('%d dirs, %d files, %d bytes', this.dirs, this.files, this.bytes);
       var cleanFiles = files.filter(function (file) {
@@ -99,12 +83,12 @@ toc(function (filePaths) {
     return tocUl + list + '</ul>';
   }
   newTocs.forEach(function (tocObj) {
-    var inputFile = path.join('output/html', tocObj.file);
+    var inputFile = path.join(config.output + '/html', tocObj.file);
     fs.readFile(inputFile, 'utf-8', function (readErr, htmlContent) {
       if (readErr) { return console.log(readErr);}
 
       htmlContent = htmlContent.replace(/<!-- @toc -->/g, makeTocUl(tocObj.toc, tocObj.file));
-      var outputPath = path.join('output/html', tocObj.file);
+      var outputPath = path.join(config.output + '/html', tocObj.file);
       fs.outputFile(outputPath, htmlContent, function (writeErr) {
         if (writeErr) { return console.log(writeErr);}
       });

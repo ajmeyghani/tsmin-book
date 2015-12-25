@@ -1,5 +1,6 @@
 var page = new WebPage();
 var system = require("system");
+var config = require('../config');
 // change the paper size to letter, add some borders
 // add a footer callback showing page numbers
 page.paperSize = {

@@ -2,8 +2,9 @@
 var fs = require('fs-extra');
 var cheerio = require('cheerio');
 var path = require('path');
+var config = require('../config');
 
-fs.readFile('./output/tsmin.html', {encoding: 'utf-8'}, function (err, data) {
+fs.readFile(config.output + '/' + config.name + '.html', {encoding: 'utf-8'}, function (err, data) {
   if (err) {return console.log(err);}
   var $ = cheerio.load(data);
   var toc = $.html('#TOC');

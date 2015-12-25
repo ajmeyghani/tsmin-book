@@ -3,11 +3,11 @@ var filewalker = require('filewalker');
 var fs = require('fs-extra');
 var path = require('path');
 var files = [];
-var inputFolder = 'mdfiles';
-
+var config = require('../config');
+var inputFolder = config.input;
 
 var converToMdx = function (convert) {
-  filewalker('./mdfiles')
+  filewalker(inputFolder)
     .on('file', function(p, s) { files.push(p); })
     .on('error', function(err) { console.error(err); })
     .on('done', function() {
@@ -33,7 +33,7 @@ converToMdx(function (files) {
   };
 
   files.forEach(function (file) {
-    var filePaths = file.replace('mdfiles', 'output/mdx').split('/');
+    var filePaths = file.replace(inputFolder, config.output + '/mdx').split('/');
     var filename = filePaths[filePaths.length - 1];
     var outputPathDirs = filePaths.slice(0, filePaths.length - 1).join('/');
     var filePathToWrite = path.join(outputPathDirs, filename);

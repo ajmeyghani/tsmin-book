@@ -6,13 +6,14 @@ var exec = require('child_process').exec;
 var fs = require('fs-extra');
 var filewalker = require('filewalker');
 var async = require('async');
+var config = require('../config');
 
 /* input */
-var inputFolder = 'mdfiles';
+var inputFolder = config.input;
 
 /* copy public to output/public */
-fs.ensureDir('output/html', function () {
-  exec('cp -r public output/html', function(copyErr, stdout, stderr) {
+fs.ensureDir(config.output + '/html', function () {
+  exec('cp -r public ' + config.output + '/html', function(copyErr, stdout, stderr) {
     if (copyErr) { return console.log(copyErr); }
   });
 });
@@ -22,7 +23,7 @@ async.waterfall([
   function(makeHtmlStandalone) {
     var mydirs = [];
     var files = [];
-    filewalker('./mdfiles')
+    filewalker(inputFolder)
       .on('file', function(p, s) {files.push(p);})
       .on('dir', function (dir) { mydirs.push(dir); })
       .on('error', function(err) { return console.error(err); })
@@ -41,7 +42,7 @@ async.waterfall([
       fs.readFile(contentOnlyFile, 'utf-8', function (readErr, htmlFragment) {
         if (readErr) { console.log(readErr); }
         var standaloneContent = mainTemplate.replace(/@content/, htmlFragment).replace(/@title/, pageTitle);
-        var nestCount = contentOnlyFile.replace('output/html/', '').split('/').length;
+        var nestCount = contentOnlyFile.replace(config.output + '/html/', '').split('/').length;
         var newPublicPath = function () {
           var publicPath = '';
           if (nestCount === 1) { publicPath += './'; }
@@ -62,7 +63,7 @@ async.waterfall([
         var filePaths = mdFile.split('/');
         var filename = filePaths[filePaths.length - 1];
         var outputFolder = filePaths.slice(1, filePaths.length - 1).join('/');
-        var dest = path.join('output/html', outputFolder);
+        var dest = path.join(config.output + '/html', outputFolder);
         var writePath = path.join(dest, filename.replace('.md', '-content.html'));
         fs.readFile(mdFile, 'utf-8', function (errReadMd, mdContent) {
           var pageTitleRegx = new RegExp('[\s\S]*#\s*(.*)');

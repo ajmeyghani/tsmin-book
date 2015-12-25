@@ -8,14 +8,14 @@
     "chapters": "rm -rf output/html output/pdf && node bin/html.js && node bin/highlight.js && node bin/pdfify.js",
     "github": "rm -rf readme.md && npm run html:h && node bin/github.js",
     "mdx": "rm -rf output/mdx && node bin/mdx.js",
-    "epub": "npm run mdx && rm -rf output/tsmin.epub && pandoc -S -o output/tsmin.epub book.txt output/mdx/**/*.md --highlight-style haddock --epub-cover-image=cover.png --epub-stylesheet=book.epub.css --toc-depth=5",
-    "mobi": "rm -rf output/tsmin.mobi && npm run epub && kindlegen output/tsmin.epub -c0 -o tsmin.mobi",
-    "pdf": "rm -rf output/tsmin.pdf && npm run mdx && pandoc -N --template=template.tex --variable mainfont=\"Palatino\" --variable sansfont=\"Century Gothic\" --variable monofont=\"Consolas\" --variable fontsize=12pt --variable version='1.0.0' book.txt output/mdx/**/*.md --latex-engine=xelatex --toc --toc-depth=5 -o output/tsmin.pdf",
-    "html:hp": "rm -rf output/tsmin-pan.html &&  npm run mdx && pandoc book.txt output/mdx/**/*.md -s -t html -o output/tsmin-pan.html --toc  --toc-depth=5 --template=\"template.html\" --section-divs",
-    "html:h": "rm -rf output/tsmin.html && mkdir -p output && pandoc book.txt mdfiles/**/*.md -s -o output/tsmin.html --toc --toc-depth=5 --template=\"template.html\" --section-divs && node bin/hjs.js",
-    "md": "rm -rf output/tsmin.md && pandoc book.txt mdfiles/**/*.md -o output/tsmin.md",
+    "epub": "npm run mdx && rm -rf output/tsmin.epub && pandoc -S -o output/tsminified.epub book.txt output/mdx/**/*.md --highlight-style haddock --epub-cover-image=cover.png --epub-stylesheet=book.epub.css --toc-depth=5",
+    "mobi": "rm -rf output/tsminified.mobi && npm run epub && kindlegen output/tsminified.epub -c0 -o tsminified.mobi",
+    "pdf": "rm -rf output/tsminified.pdf && npm run mdx && pandoc -N --template=template.tex --variable mainfont=\"Palatino\" --variable sansfont=\"Century Gothic\" --variable monofont=\"Consolas\" --variable fontsize=12pt --variable version='1.0.0' book.txt output/mdx/**/*.md --latex-engine=xelatex --toc --toc-depth=5 -o output/tsminified.pdf",
+    "html:hp": "rm -rf output/tsminified-pan.html &&  npm run mdx && pandoc book.txt output/mdx/**/*.md -s -t html -o output/tsminified-pan.html --toc  --toc-depth=5 --template=\"template.html\" --section-divs",
+    "html:h": "rm -rf output/tsminified.html && mkdir -p output && pandoc book.txt chapters/**/*.md -s -o output/tsminified.html --toc --toc-depth=5 --template=\"template.html\" --section-divs && node bin/hjs.js",
+    "md": "rm -rf output/tsminified.md && pandoc book.txt chapters/**/*.md -o output/tsminified.md",
     "books": "npm run clean:books && npm run html:hp && npm run html:h && npm run pdf && npm run md && npm run epub && npm run mobi",
-    "clean:books": "rm -rf output/tsmin.epub tsmin.mobi tsmin.pdf tsmin.html tsmin.md"
+    "clean:books": "rm -rf output/tsminified.epub tsminified.mobi tsminified.pdf tsminified.html tsminified.md"
   },
   "author": "",
   "license": "ISC",
@@ -25,7 +25,5 @@
     "filewalker": "^0.1.2",
     "fs-extra": "^0.26.3"
   },
-  "devDependencies": {
-    "task-runner": "0.0.8"
-  }
+  "devDependencies": {}
 }
