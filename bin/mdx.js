@@ -8,23 +8,13 @@ var inputFolder = 'mdfiles';
 
 var converToMdx = function (convert) {
   filewalker('./mdfiles')
-    // .on('dir', function(p) {
-    //   console.log('dir:  %s', p);
-    // })
-    .on('file', function(p, s) {
-      // console.log('file: %s, %d bytes', p, s.size);
-      files.push(p);
-    })
-    .on('error', function(err) {
-      console.error(err);
-    })
+    .on('file', function(p, s) { files.push(p); })
+    .on('error', function(err) { console.error(err); })
     .on('done', function() {
-      // console.log('%d dirs, %d files, %d bytes', this.dirs, this.files, this.bytes);
       var cleanFiles = files.filter(function (file) {
         var filename = file.split('/').pop();
         return !/^\./.test(file) && !/^\./.test(filename) && /\.md$/.test(filename);
       }).map(function (file) { return inputFolder + '/' + file });
-      // console.log(cleanFiles);
       convert(cleanFiles);
     })
   .walk();
@@ -47,7 +37,6 @@ converToMdx(function (files) {
     var filename = filePaths[filePaths.length - 1];
     var outputPathDirs = filePaths.slice(0, filePaths.length - 1).join('/');
     var filePathToWrite = path.join(outputPathDirs, filename);
-    // console.log('Writing: ', filePathToWrite);
     fs.readFile(file, 'utf-8', function (err, data) {
       if (err) {return console.log(err);}
       data = data.replace(regex.from, toFencedBlock)

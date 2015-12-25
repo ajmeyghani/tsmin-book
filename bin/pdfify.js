@@ -10,11 +10,13 @@ execFile('find', [ 'output/html' ], function(err, stdout, stderr) {
   var htmlfiles = fileList.filter(function (file) {
     var filename = file.split('/').pop();
     // does not start with `.`, does not content `-content` and ends with `.html`
-    return /^[^.](?!.*-content)\w+\.html$/igm.test(filename);
+    return !/^\./.test(file) && !/^\./.test(filename) &&
+              file.search('public') === -1 && file.search('-content.html') === -1 &&
+              /\.html$/.test(filename);
   })
   .map(function (file) {return path.resolve(file); })
   .filter(function (file) { return !/public/.test(file); });
-  console.log('Converting: ', htmlfiles);
+  console.log('Converting to PDF: ', htmlfiles);
   htmlfiles.forEach(function (htmlFilePath) {
     var outputFilePath = htmlFilePath.match(/output\/html\/(.*)/)[1].replace('.html', '.pdf');
     var makePdf = 'phantomjs bin/render.js ' + htmlFilePath + ' ' + path.join('output/pdf', outputFilePath) ;

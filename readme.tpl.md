@@ -5,27 +5,7 @@ An abridged book on TypeScript
 # Book
 See the [mdfiles](./mdfiles) folder to see each chapter and the [output](output) folder for the book in different formats.
 
-<div> <h1> Table of Contents </h1> <div id="TOC" class="l-toc">
-    <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#object-orientation">Object Orientation</a></li>
-    <li><a href="#interface">Interface</a><ul>
-    <li><a href="#basic-interface">Basic Interface</a></li>
-    <li><a href="#some-angular-interfaces">Some Angular Interfaces</a><ul>
-    <li><a href="#lifecycle-interfaces">LifeCycle Interfaces</a></li>
-    </ul></li>
-    </ul></li>
-    <li><a href="#classes">Classes</a><ul>
-    <li><a href="#distance-instance-variable">Distance Instance Variable</a></li>
-    <li><a href="#adding-a-method">Adding a Method</a></li>
-    <li><a href="#adding-a-constructor">Adding a constructor</a></li>
-    <li><a href="#using-access-modifiers">Using Access Modifiers</a></li>
-    <li><a href="#implementing-an-interface">Implementing an Interface</a></li>
-    </ul></li>
-    <li><a href="#angular-and-typescript">Angular and TypeScript</a></li>
-    <li><a href="#angular-components">Angular Components</a></li>
-    </ul>
-  </div></div>
+@toc
 
 # Building the book
 

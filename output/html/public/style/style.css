@@ -225,3 +225,17 @@ code {
 td.lineNumbers {
   width: 1px;
 }
+
+/* toc and content */
+.l-main-content {
+  float: left;
+  width: 940px;
+  position: relative;
+  left: 333px;
+}
+
+.l-toc {
+  width: 305px;
+  position: fixed;
+  border-right: 1px solid #e5e6e7;
+}
