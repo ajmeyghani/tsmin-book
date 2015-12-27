@@ -239,3 +239,7 @@ td.lineNumbers {
   position: fixed;
   border-right: 1px solid #e5e6e7;
 }
+#TOC {
+  height: 500px;
+  overflow: auto;
+}
