@@ -1,6 +1,6 @@
----
-title: TypeScript Minified
-author: Amin Meyghani
-rights:  Creative Commons Non-Commercial Share Alike 3.0
-language: en-US
-...
+1.introduction.md
+2.oop-intro.md
+3.interface.md
+5.classes.md
+6.basics.md
+7.components.md

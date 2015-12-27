@@ -1,5 +1,5 @@
 module.exports = {
-  input: 'chapters',
+  input: 'manuscript',
   output: 'output',
   name: 'tsminified'
 };
