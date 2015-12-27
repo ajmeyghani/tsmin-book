@@ -1,6 +1,6 @@
-chapter1.txt
-chapter2.txt
-chapter3.txt
-chapter4.txt
-chapter5.txt
-chapter6.txt
+---
+title: TypeScript Minified
+author: Amin Meyghani
+rights:  Creative Commons Non-Commercial Share Alike 3.0
+language: en-US
+...
