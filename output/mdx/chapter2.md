@@ -1,3 +1,3 @@
-# Object Orientation
+# Object Oriented Programming
 
 Interfaces and classes are heavily used in Object Oriented Programming. In this chapter we will focus on these topics.
