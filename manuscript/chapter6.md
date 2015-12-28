@@ -6,3 +6,12 @@
 @component({});
 class MyComponent {}
 ```
+
+
+A basic component can have some css:
+
+```css
+.my-component {
+  color: #000;
+}
+```

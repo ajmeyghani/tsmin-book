@@ -12,3 +12,7 @@ h2.author { }
 h3.date { }
 ol.toc { padding: 0; margin-left: 1em; }
 ol.toc li { list-style-type: none; margin: 0; padding: 0; }
+table.sourceCode {
+  width: auto !important;
+  line-height: 1.5em !important;
+}

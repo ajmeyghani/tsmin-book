@@ -1,4 +1,4 @@
-html { font-size: 100%;}
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
 body{
 color:#444;
@@ -7,6 +7,7 @@ font-size:12px;
 line-height:1.5em;
 padding:1em;
 margin:auto;
+
 background:#fefefe;
 }
 
@@ -51,8 +52,8 @@ padding-left: 3em;
 border-left: 0.5em #EEE solid;
 }
 hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
-/*pre, code, kbd, samp { color: #000; font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 0.98em; }*/
-/*pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }*/
+pre, code, kbd, samp { color: #000; font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 0.98em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 
 b, strong { font-weight: bold; }
 
@@ -76,13 +77,12 @@ table { border-collapse: collapse; border-spacing: 0; }
 td { vertical-align: top; }
 
 @media only screen and (min-width: 480px) {
-  body{font-size:14px;}
+body{font-size:14px;}
 }
 
 @media only screen and (min-width: 768px) {
-  body{font-size:16px;}
+body{font-size:16px;}
 }
-
 
 @media print {
   /** { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }*/
@@ -96,7 +96,7 @@ td { vertical-align: top; }
   /*a[href]:after { content: " (" attr(href) ")"; }*/
   abbr[title]:after { content: " (" attr(title) ")"; }
   .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
-  /*pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }*/
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
   tr, img { page-break-inside: avoid; }
   img { max-width: 100% !important; }
   /*@page :left { margin: 15mm 20mm 15mm 10mm; }
@@ -126,6 +126,89 @@ body {
 
 /* syntax */
 
+.syntaxhighlighter {
+  width: 100% ;
+  margin: 1em 0 1em 0 ;
+  position: relative ;
+  overflow: auto ;
+  font-size: 1em ;
+}
+
+.syntaxhighlighter a,
+.syntaxhighlighter div,
+.syntaxhighlighter code,
+.syntaxhighlighter table,
+.syntaxhighlighter table td,
+.syntaxhighlighter table tr,
+.syntaxhighlighter table tbody,
+.syntaxhighlighter table thead,
+.syntaxhighlighter table caption,
+.syntaxhighlighter textarea {
+  -moz-border-radius: 0 0 0 0 ;
+  -webkit-border-radius: 0 0 0 0 ;
+  bottom: auto ;
+  float: none ;
+  height: auto ;
+  left: auto ;
+  line-height: 1.4em ;
+  margin: 0 ;
+  outline: 0 ;
+  overflow: visible ;
+  padding: 0 ;
+  position: static ;
+  right: auto ;
+  text-align: left ;
+  top: auto ;
+  vertical-align: baseline ;
+  box-sizing: content-box ;
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace ;
+  font-weight: normal ;
+  font-style: normal ;
+  font-size: 1em ;
+  min-height: inherit ;
+  min-height: auto ;
+}
+
+.syntaxhighlighter table td.code .container textarea {
+  box-sizing: border-box ;
+  position: absolute ;
+  left: 0 ;
+  top: 0 ;
+  width: 100% ;
+  height: 100% ;
+  border: none ;
+  background: white ;
+  padding-left: 1em ;
+  overflow: hidden ;
+  white-space: pre ;
+}
+
+.syntaxhighlighter .keyword {
+    color: #2C46B1 !important;
+}
+
+td.gutter {
+  border-right: 1px solid #e5e6e7;
+  padding-right: 3px !important;
+  width: 13px;
+  color: #9A9A9A;
+}
+td.code {
+  padding-left: 5px !important;
+}
+.syntaxhighlighter {
+
+}
+.code code {
+  color: #190A50;
+}
+table {
+  width: 100% !important;
+}
+td.code .line.alt2 {
+  /*background-color: #f9f9f9;*/
+}
+
 code {
   background-color: #f9f2f4;
   padding: 0px 4px;
@@ -136,13 +219,12 @@ code {
 .code code, pre code {
   border: none;
   color: black;
-  padding: 0;
 }
 .code code, pre code { background-color: transparent; }
 
-/*td.lineNumbers {
+td.lineNumbers {
   width: 1px;
-}*/
+}
 
 /* toc and content */
 .l-main-content {
@@ -160,19 +242,4 @@ code {
 #TOC {
   height: 500px;
   overflow: auto;
-}
-table.sourceCode {
-  width: auto !important;
-  line-height: 1.5em !important;
-}
-@media print {
-/*  .sourceCode pre {
-    border: none !important;
-  }
-  .lineNumbers pre {
-    display: block !important;
-    width: 20px !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }*/
 }

@@ -24,7 +24,7 @@ The `Car` class definition can be very simple and can define only a single insta
 class Car {
   distance: number;
 }
-~~~~~~~~~
+~~~~~~~
 
 - `Car` is the name of the class, which also defines the custom type `Car`
 - `distance` is a property that tracks the distance that car has traveled
@@ -35,7 +35,7 @@ Now that we have the definition for a car, we can create a car from the definiti
 ~~~~ {.numberLines .java language=java startFrom="1"}
 let myCar:Car = new Car();
 myCar.distance = 0;
-~~~~~~~~~
+~~~~~~~
 
 - `myCar:Car` means that `myCar` is of type `Car`
 - `new Car()` creates an instance from the `Car` definition.
@@ -52,7 +52,7 @@ class Car {
     this.distance += 1;
   };
 }
-~~~~~~~~~
+~~~~~~~
 
 - `move():void` means that `move` is a method that does not return any value, hence `void`.
 - The body of the method is defined in `{ }`
@@ -62,7 +62,7 @@ class Car {
 ~~~~ {.numberLines .java language=java startFrom="1"}
 myCar.move();
 console.log(myCar.distance) // -> 1
-~~~~~~~~~
+~~~~~~~
 
 ## Adding a constructor
 
@@ -78,7 +78,7 @@ class Car {
     this.distance += 1;
   };
 }
-~~~~~~~~~
+~~~~~~~
 
 - `constructor()` is called automatically when a new car is created
 - The body of the constructor is defined in the `{ }`
@@ -97,7 +97,7 @@ class Car {
   };
   ...
 }
-~~~~~~~~~
+~~~~~~~
 
 Access modifiers can be used in different places. Check out the access modifiers chapter for more details.
 
@@ -114,7 +114,7 @@ interface ICarProps {
 interface ICarMethods {
   move():void;
 }
-~~~~~~~~~
+~~~~~~~
 Making the `Car` class implement the interfaces:
 
 ~~~~ {.numberLines .java language=java startFrom="1"}
@@ -127,7 +127,7 @@ class Car implements ICarProps, ICarMethods {
     this.distance += 1;
   };
 }
-~~~~~~~~~
+~~~~~~~
 
 The above example is silly, but it shows the point that a class can implement one or more interfaces. Now if the class does not provide implementations for any of the interfaces, the compiler will complain. For example, if we leave out the `distance` instance variable, the compiler will print out the following error:
 

@@ -26,7 +26,7 @@ interface IMyInterface {
   methodWithReturnVal():number;
   sum(nums: number[]):number;
 }
-~~~~~~~~~
+~~~~~~~
 
 Using the interface above we can create an object that adheres to the interface:
 
@@ -41,7 +41,7 @@ let myObj: IMyInterface = {
     return numbers.reduce( (a,b) => { return a + b } );
   }
 };
-~~~~~~~~~
+~~~~~~~
 
 Notice that we had to provide values to **all** the properties defined by the Interface, and the implementations for **all** the methods defined by the Interface.
 
@@ -49,7 +49,7 @@ And then of course you can use your object methods to perform operations:
 
 ~~~~ {.numberLines .java language=java startFrom="1"}
 let sum = myObj.sum([1,2,3,4,5]); // -> 15
-~~~~~~~~~
+~~~~~~~
 
 ## Some Angular Interfaces
 
@@ -72,4 +72,4 @@ export interface OnDestroy {
   ngOnDestroy();
 }
 
-~~~~~~~~~
+~~~~~~~
