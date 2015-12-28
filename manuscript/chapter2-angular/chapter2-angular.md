@@ -2,7 +2,16 @@
 
 It is much easier to write Angular with TypeScript.
 
-## Sample
+- Almost everything is a component
+
+```typescript
+@component({});
+class MyComponent {}
+```
+<!--  -->
+# Angular Components
+
+## Example
 
 A sample ts class with decoration:
 
@@ -35,11 +44,4 @@ The corresponding css:
   display: block;
 }
 ```
-# Angular Components
-
-- Almost everything is a component
-
-```typescript
-@component({});
-class MyComponent {}
-```
+<!--  -->

@@ -9,7 +9,7 @@ Object Orientation
 ==================
 
 Interfaces and classes are heavily used in Object Oriented Programming.
-In this chapter we will focus on these topics.
+In this chapter we will focus on these topics. <!--  -->
 
 Interface
 =========
@@ -100,6 +100,7 @@ export interface OnDestroy {
 }
 ```
 
+<!--  -->
 Classes
 =======
 
@@ -275,13 +276,25 @@ compiler will print out the following error:
 > error TS2420: Class 'Car' incorrectly implements interface
 > 'ICarProps'. Property 'distance' is missing in type 'Car'.
 
+<!--  -->
 Angular and TypeScript
 ======================
 
 It is much easier to write Angular with TypeScript.
 
-Sample
-------
+-   Almost everything is a component
+
+``` {.typescript}
+@component({});
+class MyComponent {}
+```
+
+<!--  -->
+Angular Components
+==================
+
+Example
+-------
 
 A sample ts class with decoration:
 
@@ -315,12 +328,5 @@ The corresponding css:
 }
 ```
 
-Angular Components
-==================
+<!--  -->
 
--   Almost everything is a component
-
-``` {.typescript}
-@component({});
-class MyComponent {}
-```

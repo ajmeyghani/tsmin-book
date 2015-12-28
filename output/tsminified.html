@@ -71,10 +71,10 @@
     <li><a href="#using-access-modifiers">Using Access Modifiers</a></li>
     <li><a href="#implementing-an-interface">Implementing an Interface</a></li>
     </ul></li>
-    <li><a href="#angular-and-typescript">Angular and TypeScript</a><ul>
-    <li><a href="#sample">Sample</a></li>
+    <li><a href="#angular-and-typescript">Angular and TypeScript</a></li>
+    <li><a href="#angular-components">Angular Components</a><ul>
+    <li><a href="#example">Example</a></li>
     </ul></li>
-    <li><a href="#angular-components">Angular Components</a></li>
     </ul>
   </div>
     <div class="l-main-content">
@@ -84,7 +84,7 @@
 </div>
 <div id="object-orientation" class="section level1">
 <h1>Object Orientation</h1>
-<p>Interfaces and classes are heavily used in Object Oriented Programming. In this chapter we will focus on these topics.</p>
+<p>Interfaces and classes are heavily used in Object Oriented Programming. In this chapter we will focus on these topics. <!--  --></p>
 </div>
 <div id="interface" class="section level1">
 <h1>Interface</h1>
@@ -180,6 +180,7 @@ export <span class="kw">interface</span> OnInit {
 export <span class="kw">interface</span> OnDestroy {
   <span class="fu">ngOnDestroy</span>();
 }</code></pre></td></tr></table></div>
+<!--  -->
 </div>
 </div>
 </div>
@@ -337,13 +338,25 @@ console.<span class="fu">log</span>(myCar.<span class="fu">distance</span>) <spa
 <blockquote>
 <p>error TS2420: Class 'Car' incorrectly implements interface 'ICarProps'. Property 'distance' is missing in type 'Car'.</p>
 </blockquote>
+<!--  -->
 </div>
 </div>
 <div id="angular-and-typescript" class="section level1">
 <h1>Angular and TypeScript</h1>
 <p>It is much easier to write Angular with TypeScript.</p>
-<div id="sample" class="section level2">
-<h2>Sample</h2>
+<ul>
+<li>Almost everything is a component</li>
+</ul>
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+</pre></td><td class="sourceCode"><pre><code class="sourceCode java"><span class="fu">@component</span>({});
+<span class="kw">class</span> MyComponent {}</code></pre></td></tr></table></div>
+<!--  -->
+</div>
+<div id="angular-components" class="section level1">
+<h1>Angular Components</h1>
+<div id="example" class="section level2">
+<h2>Example</h2>
 <p>A sample ts class with decoration:</p>
 <div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -381,17 +394,8 @@ console.<span class="fu">log</span>(myCar.<span class="fu">distance</span>) <spa
 </pre></td><td class="sourceCode"><pre><code class="sourceCode css"><span class="fl">.app</span> <span class="kw">{</span>
   <span class="kw">display:</span> <span class="dt">block</span><span class="kw">;</span>
 <span class="kw">}</span></code></pre></td></tr></table></div>
+<!--  -->
 </div>
-</div>
-<div id="angular-components" class="section level1">
-<h1>Angular Components</h1>
-<ul>
-<li>Almost everything is a component</li>
-</ul>
-<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
-2
-</pre></td><td class="sourceCode"><pre><code class="sourceCode java"><span class="fu">@component</span>({});
-<span class="kw">class</span> MyComponent {}</code></pre></td></tr></table></div>
 </div> 
     </div>
 </body>

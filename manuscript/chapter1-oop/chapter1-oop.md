@@ -1,6 +1,7 @@
 # Object Orientation
 
 Interfaces and classes are heavily used in Object Oriented Programming. In this chapter we will focus on these topics.
+<!--  -->
 # Interface
 
 - An Interface is defined using the `interface` keyword
@@ -74,8 +75,8 @@ export interface OnInit {
 export interface OnDestroy {
   ngOnDestroy();
 }
-
 ```
+<!--  -->
 # Classes
 
 - Classes are heavily used in classical object oriented programming
@@ -213,3 +214,4 @@ The above example is silly, but it shows the point that a class can implement on
 >error TS2420: Class 'Car' incorrectly implements interface 'ICarProps'.
   Property 'distance' is missing in type 'Car'.
 
+<!--  -->
