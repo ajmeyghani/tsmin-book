@@ -1,8 +1,9 @@
 # Object Orientation
 
 Interfaces and classes are heavily used in Object Oriented Programming. In this chapter we will focus on these topics.
-<!--  -->
-# Interface
+
+<!--;-->
+## Interface
 
 - An Interface is defined using the `interface` keyword
 - Interfaces are used only during compilation time to check types
@@ -15,7 +16,7 @@ Interfaces and classes are heavily used in Object Oriented Programming. In this 
 - If an object implements an interface, it must adhere to the contract. If it doesn't the compiler will let us know.
 - Interfaces also define custom types
 
-## Basic Interface
+### Basic Interface
 
 Below is an example of an Interface that defines two properties and three methods that implementers should provide implementations for:
 
@@ -55,29 +56,8 @@ And then of course you can use your object methods to perform operations:
 let sum = myObj.sum([1,2,3,4,5]); // -> 15
 ```
 
-## Some Angular Interfaces
-
-Angular uses interfaces all over the place. The interfaces that are used very often are the *LifeCycle Hooks*.
-
-### LifeCycle Interfaces
-
-```typescript
-export interface OnChanges {
-  ngOnChanges(changes: {
-    [key: string]: SimpleChange
-  });
-}
-
-export interface OnInit {
-  ngOnInit();
-}
-
-export interface OnDestroy {
-  ngOnDestroy();
-}
-```
-<!--  -->
-# Classes
+<!--;-->
+## Classes
 
 - Classes are heavily used in classical object oriented programming
 - It defines what an object is and what it can do
@@ -95,7 +75,7 @@ export interface OnDestroy {
 
 Let's make a class definition for a car and incrementally add more things to it.
 
-## Distance Instance Variable
+### Adding an Instance Variable
 
 The `Car` class definition can be very simple and can define only a single instance variable that all cars can have:
 
@@ -120,7 +100,7 @@ myCar.distance = 0;
 - `new Car()` creates an instance from the `Car` definition.
 - `myCar.distance = 0` sets the initial value of the `distance` to 0 for the newly created `car`
 
-## Adding a Method
+### Adding a Method
 
 So far our car doesn't have any definitions for any actions. Let's define a `move` method that all the cars can have:
 
@@ -143,7 +123,7 @@ myCar.move();
 console.log(myCar.distance) // -> 1
 ```
 
-## Adding a constructor
+### Adding a constructor
 
 A `constructor` is a special method that gets called when an instance is created from a class. Let's add a constructor to the `Car` class that initializes the `distance` value to 0. This means that all the cars that are crated from this class, will have their `distance` set to 0 automatically:
 
@@ -164,7 +144,7 @@ class Car {
 
 So now when we create a car, the `distance` property is automatically set to 0.
 
-## Using Access Modifiers
+### Using Access Modifiers
 
 If you wanted to tell the compiler that the `distance` variable is private and can only be used by the object itself, you can use the `private` modifier before the name of the property:
 
@@ -180,7 +160,7 @@ class Car {
 
 Access modifiers can be used in different places. Check out the access modifiers chapter for more details.
 
-## Implementing an Interface
+### Implementing an Interface
 
 Classes can implement one or multiple interfaces. We can make the `Car` class implement two interfaces:
 
@@ -214,4 +194,4 @@ The above example is silly, but it shows the point that a class can implement on
 >error TS2420: Class 'Car' incorrectly implements interface 'ICarProps'.
   Property 'distance' is missing in type 'Car'.
 
-<!--  -->
+<!--;-->

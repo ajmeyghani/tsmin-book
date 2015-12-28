@@ -130,7 +130,7 @@ TypeScript. The theme of this book is TypeScript and Angular2.
 Interfaces and classes are heavily used in Object Oriented Programming.
 In this chapter we will focus on these topics.
 
-\section{Interface}\label{interface}
+\subsection{Interface}\label{interface}
 
 \begin{itemize}
 \tightlist
@@ -161,7 +161,7 @@ In this chapter we will focus on these topics.
   Interfaces also define custom types
 \end{itemize}
 
-\subsection{Basic Interface}\label{basic-interface}
+\subsubsection{Basic Interface}\label{basic-interface}
 
 Below is an example of an Interface that defines two properties and
 three methods that implementers should provide implementations for:
@@ -212,32 +212,7 @@ operations:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Some Angular Interfaces}\label{some-angular-interfaces}
-
-Angular uses interfaces all over the place. The interfaces that are used
-very often are the \emph{LifeCycle Hooks}.
-
-\subsubsection{LifeCycle Interfaces}\label{lifecycle-interfaces}
-
-\begin{Shaded}
-\begin{Highlighting}[numbers=left,,]
-\NormalTok{export }\KeywordTok{interface} \NormalTok{OnChanges \{}
-  \FunctionTok{ngOnChanges}\NormalTok{(changes: \{}
-    \NormalTok{[key: string]: SimpleChange}
-  \NormalTok{\});}
-\NormalTok{\}}
-
-\NormalTok{export }\KeywordTok{interface} \NormalTok{OnInit \{}
-  \FunctionTok{ngOnInit}\NormalTok{();}
-\NormalTok{\}}
-
-\NormalTok{export }\KeywordTok{interface} \NormalTok{OnDestroy \{}
-  \FunctionTok{ngOnDestroy}\NormalTok{();}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-\section{Classes}\label{classes}
+\subsection{Classes}\label{classes}
 
 \begin{itemize}
 \tightlist
@@ -281,8 +256,8 @@ very often are the \emph{LifeCycle Hooks}.
 Let's make a class definition for a car and incrementally add more
 things to it.
 
-\subsection{Distance Instance
-Variable}\label{distance-instance-variable}
+\subsubsection{Adding an Instance
+Variable}\label{adding-an-instance-variable}
 
 The \texttt{Car} class definition can be very simple and can define only
 a single instance variable that all cars can have:
@@ -330,7 +305,7 @@ definition:
   \texttt{distance} to 0 for the newly created \texttt{car}
 \end{itemize}
 
-\subsection{Adding a Method}\label{adding-a-method}
+\subsubsection{Adding a Method}\label{adding-a-method}
 
 So far our car doesn't have any definitions for any actions. Let's
 define a \texttt{move} method that all the cars can have:
@@ -368,7 +343,7 @@ define a \texttt{move} method that all the cars can have:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Adding a constructor}\label{adding-a-constructor}
+\subsubsection{Adding a constructor}\label{adding-a-constructor}
 
 A \texttt{constructor} is a special method that gets called when an
 instance is created from a class. Let's add a constructor to the
@@ -402,7 +377,7 @@ their \texttt{distance} set to 0 automatically:
 So now when we create a car, the \texttt{distance} property is
 automatically set to 0.
 
-\subsection{Using Access Modifiers}\label{using-access-modifiers}
+\subsubsection{Using Access Modifiers}\label{using-access-modifiers}
 
 If you wanted to tell the compiler that the \texttt{distance} variable
 is private and can only be used by the object itself, you can use the
@@ -423,7 +398,8 @@ is private and can only be used by the object itself, you can use the
 Access modifiers can be used in different places. Check out the access
 modifiers chapter for more details.
 
-\subsection{Implementing an Interface}\label{implementing-an-interface}
+\subsubsection{Implementing an
+Interface}\label{implementing-an-interface}
 
 Classes can implement one or multiple interfaces. We can make the
 \texttt{Car} class implement two interfaces:
@@ -470,34 +446,82 @@ Property `distance' is missing in type `Car'.
 
 \section{Angular and TypeScript}\label{angular-and-typescript}
 
-It is much easier to write Angular with TypeScript.
+This chapter is about using Angular and TypeScript. It goes through some
+of Angular's source code and points out the way TypeScript is used. It
+is useful to know where things are and how to make sense of the source
+code in case you want to dig deeper in the srouce.
+
+\subsection{Annotations}\label{annotations}
 
 \begin{itemize}
 \tightlist
 \item
-  Almost everything is a component
+  Annotations and decorators are practically the same.
+\item
+  Annotations are Angular specific and are implemented by TypeScript
+  decorators
+\item
+  There are different type of decorators. Check out the decorators
+  chapter for more details.
+\item
+  The most commonly used decorators are the class decorators.
+\item
+  Angular uses class decorators to define component annotation.
+\item
+  Below is a simple component annotation using a class decorator:
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
-\FunctionTok{@component}\NormalTok{(\{\});}
+\FunctionTok{@component}\NormalTok{(\{ }\KeywordTok{... }\NormalTok{\});}
 \KeywordTok{class} \NormalTok{MyComponent \{\}}
 \end{Highlighting}
 \end{Shaded}
 
-\section{Angular Components}\label{angular-components}
+\subsection{Interfaces}\label{interfaces}
 
-\subsection{Example}\label{example}
+\begin{itemize}
+\tightlist
+\item
+  Interfaces are used all over the place
+\item
+  The most notable ones are the \emph{LifeCycle Hooks}
+\item
+  Angular defines the interfaces and you have to provide the
+  implementation
+\item
+  Angular defines the \texttt{lifeCyle} interfaces in the \texttt{link}
+  folder:
+\end{itemize}
 
-A sample ts class with decoration:
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{export }\KeywordTok{interface} \NormalTok{OnChanges \{}
+  \FunctionTok{ngOnChanges}\NormalTok{(changes: \{}
+    \NormalTok{[key: string]: SimpleChange}
+  \NormalTok{\});}
+\NormalTok{\}}
+
+\NormalTok{export }\KeywordTok{interface} \NormalTok{OnInit \{}
+  \FunctionTok{ngOnInit}\NormalTok{();}
+\NormalTok{\}}
+
+\NormalTok{export }\KeywordTok{interface} \NormalTok{OnDestroy \{}
+  \FunctionTok{ngOnDestroy}\NormalTok{();}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Below is an example of using the \texttt{onInit} hook:
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
 \KeywordTok{import \{bootstrap\} from 'angular';}
+\KeywordTok{import \{onClick\} from 'angular';}
 \FunctionTok{@component}\NormalTok{(\{}
   \NormalTok{selector: 'app'}
 \NormalTok{\});}
-\KeywordTok{class} \NormalTok{App \{\}}
+\KeywordTok{class} \NormalTok{App }\KeywordTok{implements} \NormalTok{onClick \{\}}
 \end{Highlighting}
 \end{Shaded}
 

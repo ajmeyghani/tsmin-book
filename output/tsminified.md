@@ -5,14 +5,16 @@ This is a book from the *Minifed* series on TypeScript. It goes through
 the essentials very fast so that you can get up to speed with
 TypeScript. The theme of this book is TypeScript and Angular2.
 
+<!--;-->
 Object Orientation
 ==================
 
 Interfaces and classes are heavily used in Object Oriented Programming.
-In this chapter we will focus on these topics. <!--  -->
+In this chapter we will focus on these topics.
 
+<!--;-->
 Interface
-=========
+---------
 
 -   An Interface is defined using the `interface` keyword
 -   Interfaces are used only during compilation time to check types
@@ -30,8 +32,7 @@ Interface
     the contract. If it doesn't the compiler will let us know.
 -   Interfaces also define custom types
 
-Basic Interface
----------------
+### Basic Interface
 
 Below is an example of an Interface that defines two properties and
 three methods that implementers should provide implementations for:
@@ -76,33 +77,9 @@ operations:
 let sum = myObj.sum([1,2,3,4,5]); // -> 15
 ```
 
-Some Angular Interfaces
------------------------
-
-Angular uses interfaces all over the place. The interfaces that are used
-very often are the *LifeCycle Hooks*.
-
-### LifeCycle Interfaces
-
-``` {.typescript}
-export interface OnChanges {
-  ngOnChanges(changes: {
-    [key: string]: SimpleChange
-  });
-}
-
-export interface OnInit {
-  ngOnInit();
-}
-
-export interface OnDestroy {
-  ngOnDestroy();
-}
-```
-
-<!--  -->
+<!--;-->
 Classes
-=======
+-------
 
 -   Classes are heavily used in classical object oriented programming
 -   It defines what an object is and what it can do
@@ -130,8 +107,7 @@ Classes
 Let's make a class definition for a car and incrementally add more
 things to it.
 
-Distance Instance Variable
---------------------------
+### Adding an Instance Variable
 
 The `Car` class definition can be very simple and can define only a
 single instance variable that all cars can have:
@@ -161,8 +137,7 @@ myCar.distance = 0;
 -   `myCar.distance = 0` sets the initial value of the `distance` to 0
     for the newly created `car`
 
-Adding a Method
----------------
+### Adding a Method
 
 So far our car doesn't have any definitions for any actions. Let's
 define a `move` method that all the cars can have:
@@ -189,8 +164,7 @@ myCar.move();
 console.log(myCar.distance) // -> 1
 ```
 
-Adding a constructor
---------------------
+### Adding a constructor
 
 A `constructor` is a special method that gets called when an instance is
 created from a class. Let's add a constructor to the `Car` class that
@@ -216,8 +190,7 @@ class Car {
 So now when we create a car, the `distance` property is automatically
 set to 0.
 
-Using Access Modifiers
-----------------------
+### Using Access Modifiers
 
 If you wanted to tell the compiler that the `distance` variable is
 private and can only be used by the object itself, you can use the
@@ -236,8 +209,7 @@ class Car {
 Access modifiers can be used in different places. Check out the access
 modifiers chapter for more details.
 
-Implementing an Interface
--------------------------
+### Implementing an Interface
 
 Classes can implement one or multiple interfaces. We can make the `Car`
 class implement two interfaces:
@@ -276,34 +248,68 @@ compiler will print out the following error:
 > error TS2420: Class 'Car' incorrectly implements interface
 > 'ICarProps'. Property 'distance' is missing in type 'Car'.
 
-<!--  -->
+<!--;-->
 Angular and TypeScript
 ======================
 
-It is much easier to write Angular with TypeScript.
+This chapter is about using Angular and TypeScript. It goes through some
+of Angular's source code and points out the way TypeScript is used. It
+is useful to know where things are and how to make sense of the source
+code in case you want to dig deeper in the srouce.
 
--   Almost everything is a component
+<!-- ; -->
+Annotations
+-----------
+
+-   Annotations and decorators are practically the same.
+-   Annotations are Angular specific and are implemented by TypeScript
+    decorators
+-   There are different type of decorators. Check out the decorators
+    chapter for more details.
+-   The most commonly used decorators are the class decorators.
+-   Angular uses class decorators to define component annotation.
+-   Below is a simple component annotation using a class decorator:
 
 ``` {.typescript}
-@component({});
+@component({ ... });
 class MyComponent {}
 ```
 
-<!--  -->
-Angular Components
-==================
+<!-- ; -->
+Interfaces
+----------
 
-Example
--------
+-   Interfaces are used all over the place
+-   The most notable ones are the *LifeCycle Hooks*
+-   Angular defines the interfaces and you have to provide the
+    implementation
+-   Angular defines the `lifeCyle` interfaces in the `link` folder:
 
-A sample ts class with decoration:
+``` {.typescript}
+export interface OnChanges {
+  ngOnChanges(changes: {
+    [key: string]: SimpleChange
+  });
+}
+
+export interface OnInit {
+  ngOnInit();
+}
+
+export interface OnDestroy {
+  ngOnDestroy();
+}
+```
+
+Below is an example of using the `onInit` hook:
 
 ``` {.typescript}
 import {bootstrap} from 'angular';
+import {onClick} from 'angular';
 @component({
   selector: 'app'
 });
-class App {}
+class App implements onClick {}
 ```
 
 The corresponding html
@@ -328,5 +334,5 @@ The corresponding css:
 }
 ```
 
-<!--  -->
+<!--;-->
 
