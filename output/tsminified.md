@@ -1,12 +1,12 @@
-Preface
-=======
+Introduction
+============
 
 This is a book from the *Minifed* series on TypeScript. It goes through
 the essentials very fast so that you can get up to speed with
 TypeScript. The theme of this book is TypeScript and Angular2.
 
-Object Oriented Programming
-===========================
+Object Orientation
+==================
 
 Interfaces and classes are heavily used in Object Oriented Programming.
 In this chapter we will focus on these topics.
@@ -280,6 +280,41 @@ Angular and TypeScript
 
 It is much easier to write Angular with TypeScript.
 
+Sample
+------
+
+A sample ts class with decoration:
+
+``` {.typescript}
+import {bootstrap} from 'angular';
+@component({
+  selector: 'app'
+});
+class App {}
+```
+
+The corresponding html
+
+``` {.html}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>example</title>
+</head>
+<body>
+  <app [prop]='data'></app>
+</body>
+</html>
+```
+
+The corresponding css:
+
+``` {.css}
+.app {
+  display: block;
+}
+```
+
 Angular Components
 ==================
 
@@ -288,12 +323,4 @@ Angular Components
 ``` {.typescript}
 @component({});
 class MyComponent {}
-```
-
-A basic component can have some css:
-
-``` {.css}
-.my-component {
-  color: #000;
-}
 ```

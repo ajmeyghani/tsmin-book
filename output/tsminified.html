@@ -56,8 +56,8 @@
     <h1 class="title">TypeScript Minified</h1>      <h2 class="author">Amin Meyghani</h2>    </div>
      <div id="TOC" class="l-toc">
     <ul>
-    <li><a href="#preface">Preface</a></li>
-    <li><a href="#object-oriented-programming">Object Oriented Programming</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#object-orientation">Object Orientation</a></li>
     <li><a href="#interface">Interface</a><ul>
     <li><a href="#basic-interface">Basic Interface</a></li>
     <li><a href="#some-angular-interfaces">Some Angular Interfaces</a><ul>
@@ -71,17 +71,19 @@
     <li><a href="#using-access-modifiers">Using Access Modifiers</a></li>
     <li><a href="#implementing-an-interface">Implementing an Interface</a></li>
     </ul></li>
-    <li><a href="#angular-and-typescript">Angular and TypeScript</a></li>
+    <li><a href="#angular-and-typescript">Angular and TypeScript</a><ul>
+    <li><a href="#sample">Sample</a></li>
+    </ul></li>
     <li><a href="#angular-components">Angular Components</a></li>
     </ul>
   </div>
     <div class="l-main-content">
-     <div id="preface" class="section level1">
-<h1>Preface</h1>
+     <div id="introduction" class="section level1">
+<h1>Introduction</h1>
 <p>This is a book from the <em>Minifed</em> series on TypeScript. It goes through the essentials very fast so that you can get up to speed with TypeScript. The theme of this book is TypeScript and Angular2.</p>
 </div>
-<div id="object-oriented-programming" class="section level1">
-<h1>Object Oriented Programming</h1>
+<div id="object-orientation" class="section level1">
+<h1>Object Orientation</h1>
 <p>Interfaces and classes are heavily used in Object Oriented Programming. In this chapter we will focus on these topics.</p>
 </div>
 <div id="interface" class="section level1">
@@ -101,7 +103,7 @@
 <div id="basic-interface" class="section level2">
 <h2>Basic Interface</h2>
 <p>Below is an example of an Interface that defines two properties and three methods that implementers should provide implementations for:</p>
-<div class="sourceCode" language="java" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -122,7 +124,7 @@
   <span class="fu">sum</span>(nums: number[]):number;
 }</code></pre></td></tr></table></div>
 <p>Using the interface above we can create an object that adheres to the interface:</p>
-<div class="sourceCode" language="java" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -144,7 +146,7 @@
 };</code></pre></td></tr></table></div>
 <p>Notice that we had to provide values to <strong>all</strong> the properties defined by the Interface, and the implementations for <strong>all</strong> the methods defined by the Interface.</p>
 <p>And then of course you can use your object methods to perform operations:</p>
-<div class="sourceCode" language="java" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 </pre></td><td class="sourceCode"><pre><code class="sourceCode java">let sum = myObj.<span class="fu">sum</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]); <span class="co">// -&gt; 15</span></code></pre></td></tr></table></div>
 </div>
 <div id="some-angular-interfaces" class="section level2">
@@ -152,7 +154,7 @@
 <p>Angular uses interfaces all over the place. The interfaces that are used very often are the <em>LifeCycle Hooks</em>.</p>
 <div id="lifecycle-interfaces" class="section level3">
 <h3>LifeCycle Interfaces</h3>
-<div class="sourceCode" language="java" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -202,7 +204,7 @@ export <span class="kw">interface</span> OnDestroy {
 <div id="distance-instance-variable" class="section level2">
 <h2>Distance Instance Variable</h2>
 <p>The <code>Car</code> class definition can be very simple and can define only a single instance variable that all cars can have:</p>
-<div class="sourceCode" language="java" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 </pre></td><td class="sourceCode"><pre><code class="sourceCode java"><span class="kw">class</span> Car {
@@ -214,7 +216,7 @@ export <span class="kw">interface</span> OnDestroy {
 <li>Distance is of type <code>number</code> and only accepts <code>number</code> type.</li>
 </ul>
 <p>Now that we have the definition for a car, we can create a car from the definition:</p>
-<div class="sourceCode" language="java" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 </pre></td><td class="sourceCode"><pre><code class="sourceCode java">let myCar:Car = <span class="kw">new</span> <span class="fu">Car</span>();
 myCar.<span class="fu">distance</span> = <span class="dv">0</span>;</code></pre></td></tr></table></div>
@@ -227,7 +229,7 @@ myCar.<span class="fu">distance</span> = <span class="dv">0</span>;</code></pre>
 <div id="adding-a-method" class="section level2">
 <h2>Adding a Method</h2>
 <p>So far our car doesn't have any definitions for any actions. Let's define a <code>move</code> method that all the cars can have:</p>
-<div class="sourceCode" language="java" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -245,7 +247,7 @@ myCar.<span class="fu">distance</span> = <span class="dv">0</span>;</code></pre>
 <li><code>this</code> refers to the instance, therefore <code>this.distance</code> points to the <code>distance</code> property defined on the car instance.</li>
 <li>Now you can call the <code>move</code> method on the car instance to increment the <code>distance</code> value by 1:</li>
 </ul>
-<div class="sourceCode" language="java" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 </pre></td><td class="sourceCode"><pre><code class="sourceCode java">myCar.<span class="fu">move</span>();
 console.<span class="fu">log</span>(myCar.<span class="fu">distance</span>) <span class="co">// -&gt; 1</span></code></pre></td></tr></table></div>
@@ -253,7 +255,7 @@ console.<span class="fu">log</span>(myCar.<span class="fu">distance</span>) <spa
 <div id="adding-a-constructor" class="section level2">
 <h2>Adding a constructor</h2>
 <p>A <code>constructor</code> is a special method that gets called when an instance is created from a class. Let's add a constructor to the <code>Car</code> class that initializes the <code>distance</code> value to 0. This means that all the cars that are crated from this class, will have their <code>distance</code> set to 0 automatically:</p>
-<div class="sourceCode" language="java" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -280,7 +282,7 @@ console.<span class="fu">log</span>(myCar.<span class="fu">distance</span>) <spa
 <div id="using-access-modifiers" class="section level2">
 <h2>Using Access Modifiers</h2>
 <p>If you wanted to tell the compiler that the <code>distance</code> variable is private and can only be used by the object itself, you can use the <code>private</code> modifier before the name of the property:</p>
-<div class="sourceCode" language="java" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -300,7 +302,7 @@ console.<span class="fu">log</span>(myCar.<span class="fu">distance</span>) <spa
 <h2>Implementing an Interface</h2>
 <p>Classes can implement one or multiple interfaces. We can make the <code>Car</code> class implement two interfaces:</p>
 <p><strong>interfaces</strong></p>
-<div class="sourceCode" language="java" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -313,7 +315,7 @@ console.<span class="fu">log</span>(myCar.<span class="fu">distance</span>) <spa
   <span class="fu">move</span>():<span class="dt">void</span>;
 }</code></pre></td></tr></table></div>
 <p>Making the <code>Car</code> class implement the interfaces:</p>
-<div class="sourceCode" language="java" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -340,23 +342,56 @@ console.<span class="fu">log</span>(myCar.<span class="fu">distance</span>) <spa
 <div id="angular-and-typescript" class="section level1">
 <h1>Angular and TypeScript</h1>
 <p>It is much easier to write Angular with TypeScript.</p>
+<div id="sample" class="section level2">
+<h2>Sample</h2>
+<p>A sample ts class with decoration:</p>
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="sourceCode"><pre><code class="sourceCode java"><span class="kw">import {bootstrap} from &#39;angular&#39;;</span>
+<span class="fu">@component</span>({
+  selector: &#39;app&#39;
+});
+<span class="kw">class</span> App {}</code></pre></td></tr></table></div>
+<p>The corresponding html</p>
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines html"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="sourceCode"><pre><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+<span class="kw">&lt;head&gt;</span>
+  <span class="kw">&lt;title&gt;</span>example<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+  <span class="kw">&lt;app</span> <span class="er">[prop]</span><span class="ot">=</span><span class="st">&#39;data&#39;</span><span class="kw">&gt;&lt;/app&gt;</span>
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></td></tr></table></div>
+<p>The corresponding css:</p>
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines css"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode css"><span class="fl">.app</span> <span class="kw">{</span>
+  <span class="kw">display:</span> <span class="dt">block</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></td></tr></table></div>
+</div>
 </div>
 <div id="angular-components" class="section level1">
 <h1>Angular Components</h1>
 <ul>
 <li>Almost everything is a component</li>
 </ul>
-<div class="sourceCode" language="java" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 </pre></td><td class="sourceCode"><pre><code class="sourceCode java"><span class="fu">@component</span>({});
 <span class="kw">class</span> MyComponent {}</code></pre></td></tr></table></div>
-<p>A basic component can have some css:</p>
-<div class="sourceCode" language="css" startFrom="1"><table class="sourceCode numberLines css"><tr class="sourceCode"><td class="lineNumbers"><pre>1
-2
-3
-</pre></td><td class="sourceCode"><pre><code class="sourceCode css"><span class="fl">.my-component</span> <span class="kw">{</span>
-  <span class="kw">color:</span> <span class="dt">#000</span><span class="kw">;</span>
-<span class="kw">}</span></code></pre></td></tr></table></div>
 </div> 
     </div>
 </body>

@@ -1,2 +1,0 @@
-ch1/chapter1.md
-ch2/chapter2.md

@@ -1,0 +1,530 @@
+\documentclass[12pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{â‚¬}
+    \setmainfont{Palatino}
+    \setsansfont{Century Gothic}
+    \setmonofont[Mapping=tex-ansi]{Consolas}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Amin Meyghani},
+            pdftitle={TypeScript Minified},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\lhead{\itshape TypeScript Minified}
+\chead{}
+\rhead{\itshape{\nouppercase{\leftmark}}}
+\lfoot{}
+\cfoot{}
+\rfoot{\thepage}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{{#1}}}
+\newcommand{\DataTypeTok}[1]{{#1}}
+\newcommand{\DecValTok}[1]{{#1}}
+\newcommand{\BaseNTok}[1]{{#1}}
+\newcommand{\FloatTok}[1]{{#1}}
+\newcommand{\ConstantTok}[1]{{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{{#1}}}
+\newcommand{\FunctionTok}[1]{{#1}}
+\newcommand{\VariableTok}[1]{{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{{#1}}}
+\newcommand{\OperatorTok}[1]{{#1}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{{#1}}}
+\newcommand{\AttributeTok}[1]{{#1}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+\title{TypeScript Minified}
+\author{Amin Meyghani}
+\date{}
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\begin{document}
+\maketitle
+
+{
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{5}
+\tableofcontents
+}
+\section{Introduction}\label{introduction}
+
+This is a book from the \emph{Minifed} series on TypeScript. It goes
+through the essentials very fast so that you can get up to speed with
+TypeScript. The theme of this book is TypeScript and Angular2.
+
+\section{Object Orientation}\label{object-orientation}
+
+Interfaces and classes are heavily used in Object Oriented Programming.
+In this chapter we will focus on these topics.
+
+\section{Interface}\label{interface}
+
+\begin{itemize}
+\tightlist
+\item
+  An Interface is defined using the \texttt{interface} keyword
+\item
+  Interfaces are used only during compilation time to check types
+\item
+  By convention, interface definitions start with an \texttt{I}, e.g. :
+  \texttt{IPoint}
+\item
+  Interfaces are used in classical object oriented programming as a
+  design tool
+\item
+  Interfaces don't contain implementations
+\item
+  They provide definitions only
+\item
+  When an object implements an interface, it must adhere to the contract
+  defined by the interface
+\item
+  An interface defines what properties and methods an object must
+  implement
+\item
+  If an object implements an interface, it must adhere to the contract.
+  If it doesn't the compiler will let us know.
+\item
+  Interfaces also define custom types
+\end{itemize}
+
+\subsection{Basic Interface}\label{basic-interface}
+
+Below is an example of an Interface that defines two properties and
+three methods that implementers should provide implementations for:
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\KeywordTok{interface} \NormalTok{IMyInterface \{}
+  \CommentTok{// some properties}
+  \NormalTok{id: number;}
+  \NormalTok{name: string;}
+
+  \CommentTok{// some methods}
+  \FunctionTok{method}\NormalTok{(): }\DataTypeTok{void}\NormalTok{;}
+  \FunctionTok{methodWithReturnVal}\NormalTok{():number;}
+  \FunctionTok{sum}\NormalTok{(nums: number[]):number;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Using the interface above we can create an object that adheres to the
+interface:
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{let myObj: IMyInterface = \{}
+  \NormalTok{id: }\DecValTok{2}\NormalTok{,}
+  \NormalTok{name: 'some name',}
+
+  \FunctionTok{method}\NormalTok{() \{ console.}\FunctionTok{log}\NormalTok{('hello'); \},}
+  \FunctionTok{methodWithReturnVal} \NormalTok{() \{ }\KeywordTok{return} \DecValTok{2}\NormalTok{; \},}
+  \FunctionTok{sum}\NormalTok{(numbers) \{}
+    \KeywordTok{return} \NormalTok{numbers.}\FunctionTok{reduce}\NormalTok{( (a,b) => \{ }\KeywordTok{return} \NormalTok{a + b \} );}
+  \NormalTok{\}}
+\NormalTok{\};}
+\end{Highlighting}
+\end{Shaded}
+
+Notice that we had to provide values to \textbf{all} the properties
+defined by the Interface, and the implementations for \textbf{all} the
+methods defined by the Interface.
+
+And then of course you can use your object methods to perform
+operations:
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{let sum = myObj.}\FunctionTok{sum}\NormalTok{([}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{]); }\CommentTok{// -> 15}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Some Angular Interfaces}\label{some-angular-interfaces}
+
+Angular uses interfaces all over the place. The interfaces that are used
+very often are the \emph{LifeCycle Hooks}.
+
+\subsubsection{LifeCycle Interfaces}\label{lifecycle-interfaces}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{export }\KeywordTok{interface} \NormalTok{OnChanges \{}
+  \FunctionTok{ngOnChanges}\NormalTok{(changes: \{}
+    \NormalTok{[key: string]: SimpleChange}
+  \NormalTok{\});}
+\NormalTok{\}}
+
+\NormalTok{export }\KeywordTok{interface} \NormalTok{OnInit \{}
+  \FunctionTok{ngOnInit}\NormalTok{();}
+\NormalTok{\}}
+
+\NormalTok{export }\KeywordTok{interface} \NormalTok{OnDestroy \{}
+  \FunctionTok{ngOnDestroy}\NormalTok{();}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Classes}\label{classes}
+
+\begin{itemize}
+\tightlist
+\item
+  Classes are heavily used in classical object oriented programming
+\item
+  It defines what an object is and what it can do
+\item
+  A class is defined using the \texttt{class} keyword followed by a name
+\item
+  By convention, the name of the class start with an uppercase letter
+\item
+  A class can be used to create multiple objects (instances) of the same
+  class
+\item
+  An object is created from a class using the \texttt{new} keyword
+\item
+  A class can have a \texttt{constructor} which is called when an object
+  is made from the class
+\item
+  Properties of a class are called instance variables and its functions
+  are called the class methods
+\item
+  Access modifiers can be used to make them public or private
+\item
+  The instance variables are attached to the instance itself but not the
+  prototype
+\item
+  Methods however are attached to the prototype object as opposed to the
+  instance itself
+\item
+  Classes can inherit functionality from other classes, but you should
+  \href{https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3\#.oc5pdevwh}{favor
+  composition over inheritance} or make sure you know
+  \href{https://medium.com/@dtinth/es6-class-classical-inheritance-20f4726f4c4\#.xdif2m42e}{when
+  to use it}
+\item
+  Classes can implement interfaces
+\end{itemize}
+
+Let's make a class definition for a car and incrementally add more
+things to it.
+
+\subsection{Distance Instance
+Variable}\label{distance-instance-variable}
+
+The \texttt{Car} class definition can be very simple and can define only
+a single instance variable that all cars can have:
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\KeywordTok{class} \NormalTok{Car \{}
+  \NormalTok{distance: number;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Car} is the name of the class, which also defines the custom
+  type \texttt{Car}
+\item
+  \texttt{distance} is a property that tracks the distance that car has
+  traveled
+\item
+  Distance is of type \texttt{number} and only accepts \texttt{number}
+  type.
+\end{itemize}
+
+Now that we have the definition for a car, we can create a car from the
+definition:
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{let myCar:Car = }\KeywordTok{new} \FunctionTok{Car}\NormalTok{();}
+\NormalTok{myCar.}\FunctionTok{distance} \NormalTok{= }\DecValTok{0}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{myCar:Car} means that \texttt{myCar} is of type \texttt{Car}
+\item
+  \texttt{new\ Car()} creates an instance from the \texttt{Car}
+  definition.
+\item
+  \texttt{myCar.distance\ =\ 0} sets the initial value of the
+  \texttt{distance} to 0 for the newly created \texttt{car}
+\end{itemize}
+
+\subsection{Adding a Method}\label{adding-a-method}
+
+So far our car doesn't have any definitions for any actions. Let's
+define a \texttt{move} method that all the cars can have:
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\KeywordTok{class} \NormalTok{Car \{}
+  \NormalTok{distance: number;}
+  \FunctionTok{move}\NormalTok{():}\DataTypeTok{void} \NormalTok{\{}
+    \KeywordTok{this}\NormalTok{.}\FunctionTok{distance} \NormalTok{+= }\DecValTok{1}\NormalTok{;}
+  \NormalTok{\};}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{move():void} means that \texttt{move} is a method that does
+  not return any value, hence \texttt{void}.
+\item
+  The body of the method is defined in \texttt{\{\ \}}
+\item
+  \texttt{this} refers to the instance, therefore \texttt{this.distance}
+  points to the \texttt{distance} property defined on the car instance.
+\item
+  Now you can call the \texttt{move} method on the car instance to
+  increment the \texttt{distance} value by 1:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{myCar.}\FunctionTok{move}\NormalTok{();}
+\NormalTok{console.}\FunctionTok{log}\NormalTok{(myCar.}\FunctionTok{distance}\NormalTok{) }\CommentTok{// -> 1}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Adding a constructor}\label{adding-a-constructor}
+
+A \texttt{constructor} is a special method that gets called when an
+instance is created from a class. Let's add a constructor to the
+\texttt{Car} class that initializes the \texttt{distance} value to 0.
+This means that all the cars that are crated from this class, will have
+their \texttt{distance} set to 0 automatically:
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\KeywordTok{class} \NormalTok{Car \{}
+  \NormalTok{distance: number;}
+  \FunctionTok{constructor} \NormalTok{() \{}
+    \KeywordTok{this}\NormalTok{.}\FunctionTok{distance} \NormalTok{= }\DecValTok{0}\NormalTok{;}
+  \NormalTok{\};}
+  \FunctionTok{move}\NormalTok{():}\DataTypeTok{void} \NormalTok{\{}
+    \KeywordTok{this}\NormalTok{.}\FunctionTok{distance} \NormalTok{+= }\DecValTok{1}\NormalTok{;}
+  \NormalTok{\};}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{constructor()} is called automatically when a new car is
+  created
+\item
+  The body of the constructor is defined in the \texttt{\{\ \}}
+\end{itemize}
+
+So now when we create a car, the \texttt{distance} property is
+automatically set to 0.
+
+\subsection{Using Access Modifiers}\label{using-access-modifiers}
+
+If you wanted to tell the compiler that the \texttt{distance} variable
+is private and can only be used by the object itself, you can use the
+\texttt{private} modifier before the name of the property:
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\KeywordTok{class} \NormalTok{Car \{}
+  \KeywordTok{private} \NormalTok{distance: number;}
+  \FunctionTok{constructor} \NormalTok{() \{}
+    \NormalTok{...}
+  \NormalTok{\};}
+  \NormalTok{...}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Access modifiers can be used in different places. Check out the access
+modifiers chapter for more details.
+
+\subsection{Implementing an Interface}\label{implementing-an-interface}
+
+Classes can implement one or multiple interfaces. We can make the
+\texttt{Car} class implement two interfaces:
+
+\textbf{interfaces}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\KeywordTok{interface} \NormalTok{ICarProps \{}
+  \NormalTok{distance: number;}
+\NormalTok{\}}
+\KeywordTok{interface} \NormalTok{ICarMethods \{}
+  \FunctionTok{move}\NormalTok{():}\DataTypeTok{void}\NormalTok{;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Making the \texttt{Car} class implement the interfaces:
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\KeywordTok{class} \NormalTok{Car }\KeywordTok{implements} \NormalTok{ICarProps, ICarMethods \{}
+  \NormalTok{distance: number;}
+  \FunctionTok{constructor} \NormalTok{() \{}
+    \KeywordTok{this}\NormalTok{.}\FunctionTok{distance} \NormalTok{= }\DecValTok{5}\NormalTok{;}
+  \NormalTok{\};}
+  \FunctionTok{move}\NormalTok{():}\DataTypeTok{void} \NormalTok{\{}
+    \KeywordTok{this}\NormalTok{.}\FunctionTok{distance} \NormalTok{+= }\DecValTok{1}\NormalTok{;}
+  \NormalTok{\};}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+The above example is silly, but it shows the point that a class can
+implement one or more interfaces. Now if the class does not provide
+implementations for any of the interfaces, the compiler will complain.
+For example, if we leave out the \texttt{distance} instance variable,
+the compiler will print out the following error:
+
+\begin{quote}
+error TS2420: Class `Car' incorrectly implements interface `ICarProps'.
+Property `distance' is missing in type `Car'.
+\end{quote}
+
+\section{Angular and TypeScript}\label{angular-and-typescript}
+
+It is much easier to write Angular with TypeScript.
+
+\subsection{Sample}\label{sample}
+
+A sample ts class with decoration:
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\KeywordTok{import \{bootstrap\} from 'angular';}
+\FunctionTok{@component}\NormalTok{(\{}
+  \NormalTok{selector: 'app'}
+\NormalTok{\});}
+\KeywordTok{class} \NormalTok{App \{\}}
+\end{Highlighting}
+\end{Shaded}
+
+The corresponding html
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\DataTypeTok{<!DOCTYPE }\NormalTok{html}\DataTypeTok{>}
+\KeywordTok{<html>}
+\KeywordTok{<head>}
+  \KeywordTok{<title>}\NormalTok{example}\KeywordTok{</title>}
+\KeywordTok{</head>}
+\KeywordTok{<body>}
+  \KeywordTok{<app} \ErrorTok{[prop]}\OtherTok{=}\StringTok{'data'}\KeywordTok{></app>}
+\KeywordTok{</body>}
+\KeywordTok{</html>}
+\end{Highlighting}
+\end{Shaded}
+
+The corresponding css:
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\FloatTok{.app} \KeywordTok{\{}
+  \KeywordTok{display:} \DataTypeTok{block}\KeywordTok{;}
+\KeywordTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Angular Components}\label{angular-components}
+
+\begin{itemize}
+\tightlist
+\item
+  Almost everything is a component
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\FunctionTok{@component}\NormalTok{(\{\});}
+\KeywordTok{class} \NormalTok{MyComponent \{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{document}
