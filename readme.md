@@ -4,7 +4,7 @@ TypeScript Minified is another book from the minified book series that walks the
 
 ## Chapters
 
-Each individual chapters are in the [chapters]('./chapters') folder.
+Each individual chapters are in the [chapters]('chapters') folder.
 
 ## Building the book
 
