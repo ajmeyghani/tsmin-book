@@ -1,6 +1,4 @@
-frontmatter:
-chapter0-intro.md
-mainmatter:
-chapter1-oop.md
-chapter2-decorators.md
-chapter3-angular.md
+chapter0-intro/chapter0-intro.md
+chapter1-oop/chapter1-oop.md
+chapter2-decorators/chapter2-decorators.md
+chapter3-angular/chapter3-angular.md
