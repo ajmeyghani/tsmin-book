@@ -5,14 +5,12 @@ This is a book from the *Minifed* series on TypeScript. It goes through
 the essentials very fast so that you can get up to speed with
 TypeScript. The theme of this book is TypeScript and Angular2.
 
-<!--;-->
 Object Orientation
 ==================
 
 Interfaces and classes are heavily used in Object Oriented Programming.
 In this chapter we will focus on these topics.
 
-<!--;-->
 Interface
 ---------
 
@@ -77,7 +75,6 @@ operations:
 let sum = myObj.sum([1,2,3,4,5]); // -> 15
 ```
 
-<!--;-->
 Classes
 -------
 
@@ -248,7 +245,28 @@ compiler will print out the following error:
 > error TS2420: Class 'Car' incorrectly implements interface
 > 'ICarProps'. Property 'distance' is missing in type 'Car'.
 
-<!--;-->
+Decorators
+==========
+
+There are different types of decorators:
+
+-   class
+-   property
+-   attribute
+-   method
+
+Below we are going to talk about each decorator type.
+
+Class Decorator
+---------------
+
+Class decorators are used to decorate classes.
+
+Property Decorators
+-------------------
+
+Property decorators are used to decorate properties.
+
 Angular and TypeScript
 ======================
 
@@ -257,7 +275,6 @@ of Angular's source code and points out the way TypeScript is used. It
 is useful to know where things are and how to make sense of the source
 code in case you want to dig deeper in the srouce.
 
-<!-- ; -->
 Annotations
 -----------
 
@@ -275,7 +292,6 @@ Annotations
 class MyComponent {}
 ```
 
-<!-- ; -->
 Interfaces
 ----------
 
@@ -333,6 +349,3 @@ The corresponding css:
   display: block;
 }
 ```
-
-<!--;-->
-

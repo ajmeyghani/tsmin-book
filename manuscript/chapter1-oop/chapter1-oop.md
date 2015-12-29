@@ -2,7 +2,6 @@
 
 Interfaces and classes are heavily used in Object Oriented Programming. In this chapter we will focus on these topics.
 
-<!--;-->
 ## Interface
 
 - An Interface is defined using the `interface` keyword
@@ -56,7 +55,6 @@ And then of course you can use your object methods to perform operations:
 let sum = myObj.sum([1,2,3,4,5]); // -> 15
 ```
 
-<!--;-->
 ## Classes
 
 - Classes are heavily used in classical object oriented programming
@@ -194,4 +192,4 @@ The above example is silly, but it shows the point that a class can implement on
 >error TS2420: Class 'Car' incorrectly implements interface 'ICarProps'.
   Property 'distance' is missing in type 'Car'.
 
-<!--;-->
+

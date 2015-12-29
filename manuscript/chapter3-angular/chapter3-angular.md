@@ -2,7 +2,6 @@
 
 This chapter is about using Angular and TypeScript. It goes through some of Angular's source code and points out the way TypeScript is used. It is useful to know where things are and how to make sense of the source code in case you want to dig deeper in the srouce.
 
-<!-- ; -->
 ## Annotations
 
 - Annotations and decorators are practically the same.
@@ -17,7 +16,6 @@ This chapter is about using Angular and TypeScript. It goes through some of Angu
 class MyComponent {}
 ```
 
-<!-- ; -->
 ## Interfaces
 
 - Interfaces are used all over the place
@@ -74,4 +72,3 @@ The corresponding css:
 }
 ```
 
-<!--;-->

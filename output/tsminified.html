@@ -69,6 +69,10 @@
     <li><a href="#implementing-an-interface">Implementing an Interface</a></li>
     </ul></li>
     </ul></li>
+    <li><a href="#decorators">Decorators</a><ul>
+    <li><a href="#class-decorator">Class Decorator</a></li>
+    <li><a href="#property-decorators">Property Decorators</a></li>
+    </ul></li>
     <li><a href="#angular-and-typescript">Angular and TypeScript</a><ul>
     <li><a href="#annotations">Annotations</a></li>
     <li><a href="#interfaces">Interfaces</a></li>
@@ -79,12 +83,10 @@
      <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>This is a book from the <em>Minifed</em> series on TypeScript. It goes through the essentials very fast so that you can get up to speed with TypeScript. The theme of this book is TypeScript and Angular2.</p>
-<!--;-->
 </div>
 <div id="object-orientation" class="section level1">
 <h1>Object Orientation</h1>
 <p>Interfaces and classes are heavily used in Object Oriented Programming. In this chapter we will focus on these topics.</p>
-<!--;-->
 <div id="interface" class="section level2">
 <h2>Interface</h2>
 <ul>
@@ -147,7 +149,6 @@
 <p>And then of course you can use your object methods to perform operations:</p>
 <div class="sourceCode" startFrom="1"><table class="sourceCode numberLines java"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 </pre></td><td class="sourceCode"><pre><code class="sourceCode java">let sum = myObj.<span class="fu">sum</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]); <span class="co">// -&gt; 15</span></code></pre></td></tr></table></div>
-<!--;-->
 </div>
 </div>
 <div id="classes" class="section level2">
@@ -304,14 +305,31 @@ console.<span class="fu">log</span>(myCar.<span class="fu">distance</span>) <spa
 <blockquote>
 <p>error TS2420: Class 'Car' incorrectly implements interface 'ICarProps'. Property 'distance' is missing in type 'Car'.</p>
 </blockquote>
-<!--;-->
 </div>
+</div>
+</div>
+<div id="decorators" class="section level1">
+<h1>Decorators</h1>
+<p>There are different types of decorators:</p>
+<ul>
+<li>class</li>
+<li>property</li>
+<li>attribute</li>
+<li>method</li>
+</ul>
+<p>Below we are going to talk about each decorator type.</p>
+<div id="class-decorator" class="section level2">
+<h2>Class Decorator</h2>
+<p>Class decorators are used to decorate classes.</p>
+</div>
+<div id="property-decorators" class="section level2">
+<h2>Property Decorators</h2>
+<p>Property decorators are used to decorate properties.</p>
 </div>
 </div>
 <div id="angular-and-typescript" class="section level1">
 <h1>Angular and TypeScript</h1>
 <p>This chapter is about using Angular and TypeScript. It goes through some of Angular's source code and points out the way TypeScript is used. It is useful to know where things are and how to make sense of the source code in case you want to dig deeper in the srouce.</p>
-<!-- ; -->
 <div id="annotations" class="section level2">
 <h2>Annotations</h2>
 <ul>
@@ -326,7 +344,6 @@ console.<span class="fu">log</span>(myCar.<span class="fu">distance</span>) <spa
 2
 </pre></td><td class="sourceCode"><pre><code class="sourceCode java"><span class="fu">@component</span>({ <span class="kw">... </span>});
 <span class="kw">class</span> MyComponent {}</code></pre></td></tr></table></div>
-<!-- ; -->
 </div>
 <div id="interfaces" class="section level2">
 <h2>Interfaces</h2>
@@ -401,7 +418,6 @@ export <span class="kw">interface</span> OnDestroy {
 </pre></td><td class="sourceCode"><pre><code class="sourceCode css"><span class="fl">.app</span> <span class="kw">{</span>
   <span class="kw">display:</span> <span class="dt">block</span><span class="kw">;</span>
 <span class="kw">}</span></code></pre></td></tr></table></div>
-<!--;-->
 </div>
 </div> 
     </div>
